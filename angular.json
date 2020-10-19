@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "flight-dashboard"
+    }
+  },
+  "defaultProject": "flight-dashboard",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -11,11 +11,11 @@ export const WS_ENDPOINT = environment.wsEndpoint;
 })
 export class DataService {
 
-  private socket$: WebSocketSubject<string>;
-  private messageSubject$ = new Subject<Observable<string>>();
+  private socket$: WebSocketSubject<Uint8Array>;
+  private messageSubject$ = new Subject();
 
   // The subject for multicast.
-  private subject = new Subject<string>();
+  private subject = new Subject();
 
   // Everytime we call "connect", messageSubject will emit a new WebSocketSubject observable.
   // The public `message` use `switchAll` pipe so only the most recent connection is used.
@@ -43,7 +43,15 @@ export class DataService {
   }
 
   private getNewWebSocket() {
-    return webSocket<string>(WS_ENDPOINT);
+    return webSocket<Uint8Array>({
+      url:WS_ENDPOINT,
+      deserializer: (e: MessageEvent) => {
+        console.log(e.data);
+        return new Uint8Array(e.data);
+      },
+      serializer: value => value,
+      binaryType: 'arraybuffer'
+    });
   }
 
   sendMessage (msg: any) {

@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+message SimData {
+    string call_sign = 1;
+}

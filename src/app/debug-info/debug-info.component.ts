@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { catchError, tap } from 'rxjs/operators';
 import { DataService } from '../data.service';
+import { SimData } from '../proto/simdata';
 
 @Component({
   selector: 'app-debug-info',
@@ -17,7 +18,7 @@ export class DebugInfoComponent implements OnInit {
       complete: () => console.log('[Live component] Connection Closed')
     })
   );
-
+  simData = new SimData();
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
@@ -25,6 +26,7 @@ export class DebugInfoComponent implements OnInit {
 
   ngAfterViewInit() {
     this.dataService.connect();
+    this.simData.callSign = "ASXGS";
   }
 
 }

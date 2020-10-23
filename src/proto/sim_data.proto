@@ -1,5 +1,74 @@
 syntax = "proto3";
 
 message SimData {
+}
+
+message AircraftInfo{
     string call_sign = 1;
 }
+
+message Avionics {
+
+    double nav_obs_2 = 2;
+}
+
+message CourseDeviation{
+    enum Direction{
+        DIR_UNKNOWN = 0;
+        DIR_TO = 1;
+        DIR_FROM = 2;
+    }
+    double obs_deg = 1;
+    double radial_error = 2;
+    double glide_slope_error = 3;
+    Direction direction = 4;
+    bool glisdeslope_flag = 5;
+}
+
+message AircraftMiscSystem {
+    double battery_bus_volt = 1;
+    double ambient_temp = 2;
+}
+
+message EngineData{
+    double rpm = 1;
+    double rpm_ambiemt_pct = 2;
+    double engine_elapsed_time = 3;
+    
+    double fuel_left_level = 4;
+    double fuel_right_level = 5;
+}
+
+message Instrument {
+    // Altitude
+    double indicated_altitude = 1;
+    double kohlsman_setting_hg = 2;
+    // feet per second.
+    double vertical_speed = 3;
+
+    // Attitude
+    double pitch_angle = 4;
+    double bank_angle = 5;
+
+    // Speed
+    double indicated_airspeed = 6;
+    double true_airspeed = 7;
+    double mach_speed = 8;
+    // TI
+    double turn_indicator_rate = 9;
+    double turn_coordinator_ball = 10;
+    // heading
+    double heading_indicator_deg = 1;
+}
+
+
+message HorizontalSituation {
+}
+
+message AircraftControls {
+    double elevator_trim_indicator = 1;
+    int32 flaps_count = 2;
+    int32 flaps_pos = 3;
+
+}
+

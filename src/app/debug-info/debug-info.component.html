@@ -1,4 +1,5 @@
-
-<p>Live data: </p>
-<p>{{simData.callSign}}</p>
-<p>{{liveData$ | async}}</p>
+<h2>Debug Info</h2>
+<button (click)="reconnect()">Connect</button>
+<pre>
+    <code>{{simData | json}}</code>
+</pre>

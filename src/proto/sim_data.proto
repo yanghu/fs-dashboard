@@ -1,18 +1,41 @@
 syntax = "proto3";
 
+package flight_panel;
+
 message SimData {
+    AircraftInfo aircraft_info = 1;
+    Avionics avionics = 2;
+    AircraftMiscSystem aircraft_misc_data = 3;
+    EngineData engine_data = 4;
+    Instrument instruments = 5;
+    AircraftControls aircraft_controls = 6;
+    GameData game_data = 7;
 }
 
 message AircraftInfo{
-    string call_sign = 1;
+    // aircraft model.
+    string model = 1;
+    string call_sign = 2;
 }
 
 message Avionics {
-
-    double nav_obs_2 = 2;
+    CourseDeviationIndicator cdi_1 = 1;
+    CourseDeviationIndicator cdi_2 = 2;
+    double adi_radial = 3;
+    RadioChannel nav_radio_1 = 4;
+    RadioChannel nav_radio_2 = 5;
+    RadioChannel com_radio_1 = 6;
+    RadioChannel com_radio_2 = 7;
+    RadioChannel adf_radio = 8;
+    string transponder_code = 9;
 }
 
-message CourseDeviation{
+message RadioChannel {
+    double active_freq = 1;
+    double standby_freq = 2;
+}
+
+message CourseDeviationIndicator{
     enum Direction{
         DIR_UNKNOWN = 0;
         DIR_TO = 1;
@@ -58,11 +81,7 @@ message Instrument {
     double turn_indicator_rate = 9;
     double turn_coordinator_ball = 10;
     // heading
-    double heading_indicator_deg = 1;
-}
-
-
-message HorizontalSituation {
+    double heading_indicator_deg = 11;
 }
 
 message AircraftControls {
@@ -72,3 +91,26 @@ message AircraftControls {
 
 }
 
+message GameData {
+    // Whether the game is connected.
+    bool connected = 1;
+}
+
+message NavigationSystem {
+    enum NavSource {
+        NAV_UNKNOWN = 0;
+        NAV_SOURCE_1 = 1;
+        NAV_SOURCE_2 = 2;
+        NAV_FMS = 3;
+    }
+    NavSource active_nav_source = 1;
+    HorizontalSituationIndicator hsi_1 = 2;
+    HorizontalSituationIndicator hsi_2 = 3;
+    double next_waypoint_distance = 19;
+    string next_waypoint_name = 20;
+    string last_waypoint_name = 21;
+}
+
+message HorizontalSituationIndicator {
+    double course = 1;
+}

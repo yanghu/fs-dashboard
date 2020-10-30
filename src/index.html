@@ -10,4 +10,32 @@
 <body>
   <app-root></app-root>
 </body>
+
+<script type="text/javascript">
+ // Update at 20Hz
+var increment = 0;
+setInterval(function() {
+  var airspeed = $("#debug-airspeed");
+  // console.log(airspeed);
+    // Attitude update
+    // attitude.setRoll(30*Math.sin(increment/10));
+    // attitude.setPitch(50*Math.sin(increment/20));
+    
+    // Heading update
+    // heading.setHeading(increment);
+    
+    // Vario update
+    // variometer.setVario(2*Math.sin(increment/10));
+    
+    // Airspeed update
+    var needle = airspeed.find('.speed');
+    var deg = 150+150*Math.sin(increment/40);
+    needle.css('transform', 'rotate(' + deg + 'deg)');
+    
+    // Altimeter update
+    // altimeter.setAltitude(10*increment);
+    // altimeter.setPressure(1000+3*Math.sin(increment/50));
+    increment++;
+}, 10); 
+</script>
 </html>

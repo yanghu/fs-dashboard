@@ -1,5 +1,11 @@
 import { Injectable } from '@angular/core';
-import { ConnectableObservable, EMPTY, Observable, Subject } from 'rxjs';
+import {
+  ConnectableObservable,
+  EMPTY,
+  interval,
+  Observable,
+  Subject,
+} from 'rxjs';
 import {
   catchError,
   tap,
@@ -9,6 +15,7 @@ import {
   publish,
   share,
   map,
+  throttle,
 } from 'rxjs/operators';
 import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
 import { environment } from 'src/environments/environment';
@@ -30,18 +37,39 @@ export class DataService {
   // observable.
   // The public `message` use `switchAll` pipe so only the most recent
   // connection is used.
-  public message$: Observable<
-    model.flight_panel.SimData
-  > = this.messageSubject$.pipe(
-    switchAll(),
-    catchError((e) => {
-      throw e;
-    }),
-    map((data) => model.flight_panel.SimData.decode(data)),
-    // Need to multicast back to a subject so different components can subscribe
-    // to the same subject.
-    share()
+
+  // dummy observable.
+  private dummyMessage$ = interval(40).pipe(
+    map((x) => {
+      let data = new model.flight_panel.SimData();
+      let val = Math.sin(x / 20);
+      data.instruments = new model.flight_panel.Instrument();
+      data.instruments.indicatedAirspeed = 100 + 100 * val;
+      data.instruments.indicatedAltitude = x;
+      data.instruments.bankAngle = 30 * val;
+      data.instruments.pitchAngle = 30 * val;
+      data.instruments.headingIndicatorDeg = x;
+      data.instruments.verticalSpeed = 20 * val;
+      data.instruments.kohlsmanSettingHg = 30 + val;
+      return data;
+    })
   );
+
+  // public message$: Observable<
+  //   model.flight_panel.SimData
+  // > = this.messageSubject$.pipe(
+  //   switchAll(),
+  //   catchError((e) => {
+  //     throw e;
+  //   }),
+  //   // throttle((x) => interval(50)),
+  //   map((data) => model.flight_panel.SimData.decode(data)),
+  //   // Need to multicast back to a subject so different components can subscribe
+  //   // to the same subject.
+  //   share()
+  // );
+
+  public message$ = this.dummyMessage$.pipe(share());
 
   public connect(): void {
     if (!this.socket$ || this.socket$.closed || !this.isConnected) {

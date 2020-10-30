@@ -1,16 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { interval, Observable } from 'rxjs';
-import {
-  catchError,
-  map,
-  pluck,
-  publish,
-  share,
-  tap,
-  throttle,
-} from 'rxjs/operators';
+import { catchError, map, pluck, share, tap } from 'rxjs/operators';
 import { DataService } from '../data.service';
-import { createGauge, Gauge, INSTRUMENTS } from '../gauge/gauge';
+import { INSTRUMENTS } from '../gauge/gauge';
 
 declare var $: any; // not required if installed @types/jquery
 
@@ -24,7 +15,7 @@ export class SixPackInstrumentsComponent implements OnInit {
   data$ = this.dataService.message$.pipe(
     // Add throttle. Limit to 20FPS seems to be a good balance.
     // When fps is too high, on older iPad frames would drop.
-    throttle((val) => interval(100)),
+    // throttle((val) => interval(40)),
     catchError((error) => {
       throw error;
     }),

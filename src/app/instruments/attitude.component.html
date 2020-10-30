@@ -1,0 +1,30 @@
+<div class="instrument">
+  <div class="background box">
+    <img
+      src="img/indicator_background_dashboard.svg"
+      class="box"
+      alt=""
+      [style.display]="showBox ? 'block' : 'none'"
+    />
+  </div>
+  <div class="inner box" [style.transform]="'rotate(' + bank + 'deg)'">
+    <div class="box">
+      <img src="img/attitude_roll_1.svg" alt="" class="box" />
+    </div>
+    <div
+      class="ball box"
+      [style.transform]="'translateY(' + pitchBallPos + '%)'"
+    >
+      <img src="img/attitude_pitch.svg" alt="" class="box" />
+    </div>
+    <!-- Background 2 (roll marks) -->
+    <div class="marker box">
+      <img src="img/attitude_roll_2.svg" alt="" class="box" />
+    </div>
+  </div>
+  <div class="foreground box">
+    <img src="img/attitude_foreground_1.svg" alt="" class="box" />
+    <img src="img/attitude_foreground_2.svg" alt="" class="box" />
+    <img src="img/indicator_foreground.svg" alt="" class="box" />
+  </div>
+</div>

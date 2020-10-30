@@ -11,6 +11,7 @@ export interface Gauge {
 }
 
 export function createGauge(selector: string, type: string, option) {
+  option.showScrews = false;
   return $.flightIndicator(selector, type, option);
 }
 
@@ -41,7 +42,10 @@ export const INSTRUMENTS: Gauge[] = [
     },
     creator: () => {
       console.log('attitude creator');
-      return createGauge('#attitude', 'attitude', { showBox: false });
+      return createGauge('#attitude', 'attitude', {
+        showBox: false,
+        ils: false,
+      });
     },
   },
   // Altitude
@@ -50,7 +54,7 @@ export const INSTRUMENTS: Gauge[] = [
     updater: (gauge) => {
       return (x: model.flight_panel.Instrument) => {
         gauge.setAltitude(x.indicatedAltitude);
-        gauge.setPressure((x.kohlsmanSettingHg * 3386) / 100);
+        gauge.setPressure(x.kohlsmanSettingHg);
       };
     },
     creator: () => {
@@ -67,14 +71,15 @@ export const INSTRUMENTS: Gauge[] = [
     updater: (gauge) => {
       return (x: model.flight_panel.Instrument) => {
         // TODO: add ball support to Turn indicator.
-        console.log(x.turnIndicatorRate);
         gauge.setTurn(x.turnIndicatorRate);
+        gauge.setSlip(x.turnCoordinatorBall);
       };
     },
     creator: () => {
       return createGauge('#turncoordinator', 'turn_coordinator', {
         showBox: false,
         turn: 10,
+        slip: 1,
       });
     },
   },
@@ -105,7 +110,7 @@ export const INSTRUMENTS: Gauge[] = [
     creator: () => {
       return createGauge('#variometer', 'variometer', {
         showBox: false,
-        vario: 55,
+        vario: 15,
       });
     },
   },

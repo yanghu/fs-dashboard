@@ -1,8 +1,19 @@
 <p>six-pack-instruments works!</p>
-<span *ngFor="let gauge of instruments | slice:0:3">
-    <app-gauge [data]="data$" [gauge]="gauge"></app-gauge>
+
+<app-attitude
+  [bank]="(data$ | async).bankAngle"
+  [pitch]="(data$ | async).pitchAngle"
+></app-attitude>
+<app-altimeter
+  [altitude]="(data$ | async).indicatedAltitude"
+  [pressure]="(data$ | async).kohlsmanSettingHg"
+></app-altimeter>
+<br />
+<!-- 
+<span *ngFor="let gauge of instruments | slice: 0:3">
+  <app-gauge [data]="data$" [gauge]="gauge"></app-gauge>
 </span>
-<br>
-<span *ngFor="let gauge of instruments | slice:3:6">
-    <app-gauge [data]="data$" [gauge]="gauge"></app-gauge>
-</span>
+<br />
+<span *ngFor="let gauge of instruments | slice: 3:6">
+  <app-gauge [data]="data$" [gauge]="gauge"></app-gauge>
+</span> -->

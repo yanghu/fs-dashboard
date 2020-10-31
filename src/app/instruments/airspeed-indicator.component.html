@@ -1,0 +1,35 @@
+<div class="instrument">
+  <div class="background box">
+    <img
+      src="img/indicator_background_dashboard.svg"
+      class="box"
+      alt=""
+      [style.display]="showBox ? 'block' : 'none'"
+    />
+  </div>
+  <!-- The gauge -->
+  <div class="inner box">
+    <!-- True speed: Not working!!! -->
+    <div class="truespeed box">
+      <img src="img/airspeed_trueairspeed.svg" class="box move" alt="" />
+    </div>
+
+    <!-- The "background" markings -->
+    <div class="bg box">
+      <img src="img/airspeed_markings.svg" class="box" alt="" />
+    </div>
+    <!-- speed hand -->
+    <div class="hand box">
+      <img
+        src="img/airspeed_hand.svg"
+        class="box move"
+        alt=""
+        [style.transform]="handRotationStr"
+      />
+    </div>
+  </div>
+  <!-- foreground -->
+  <div class="indicator_foreground">
+    <img src="img/indicator_foreground.svg" class="box" alt="" />
+  </div>
+</div>

@@ -8,7 +8,14 @@
   [altitude]="(data$ | async).indicatedAltitude"
   [pressure]="(data$ | async).kohlsmanSettingHg"
 ></app-altimeter>
+<app-airspeed-indicator
+  [speed]="(data$ | async).indicatedAirspeed"
+></app-airspeed-indicator>
 <br />
+<app-turn-indicator
+  [turnDegree]="(data$ | async).turnIndicatorRate"
+  [slip]="(data$ | async).turnCoordinatorBall"
+></app-turn-indicator>
 <!-- 
 <span *ngFor="let gauge of instruments | slice: 0:3">
   <app-gauge [data]="data$" [gauge]="gauge"></app-gauge>

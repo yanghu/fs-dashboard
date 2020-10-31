@@ -4,7 +4,6 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
-import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-altimeter',
@@ -31,23 +30,8 @@ export class AltimeterComponent implements OnInit {
   }
 
   get pressureRotationInhg(): string {
-    let inhgDeg = (this.pressure - 26.9) * 60;
+    // 0.01 per deg.
+    let inhgDeg = (31.6 - this.pressure) * 100;
     return AltimeterComponent.rotationStr(inhgDeg);
-  }
-
-  get pressureRotationMbar(): string {
-    let barDeg = (925 - 33.8639 * this.pressure) * 1.8;
-    return AltimeterComponent.rotationStr(barDeg);
-  }
-  get hand10kRotation(): string {
-    return AltimeterComponent.rotationStr((this.altitude / (10000 * 10)) * 360);
-  }
-
-  get hand1kRotation(): string {
-    return AltimeterComponent.rotationStr((this.altitude / (1000 * 10)) * 360);
-  }
-
-  get hand100Rotation(): string {
-    return AltimeterComponent.rotationStr((this.altitude / (100 * 10)) * 360);
   }
 }

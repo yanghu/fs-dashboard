@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { catchError, map, pluck, share, tap } from 'rxjs/operators';
+import { catchError, map, pluck, share, startWith, tap } from 'rxjs/operators';
 import { DataService } from '../data.service';
 import { INSTRUMENTS } from '../gauge/gauge';
 

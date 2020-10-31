@@ -1,0 +1,44 @@
+<div class="instrument">
+  <div class="background box">
+    <img
+      src="img/indicator_background_dashboard.svg"
+      class="box"
+      alt=""
+      [style.display]="showBox ? 'block' : 'none'"
+    />
+  </div>
+  <!-- The gauge -->
+  <div class="inner box">
+    <!-- Turn BG inner markings -->
+    <div class="box">
+      <img src="img/turn_markings_1.svg" class="box" alt="" />
+    </div>
+
+    <!-- The "ball" -->
+    <div class="box">
+      <img
+        src="img/turn_ball.svg"
+        class="box move"
+        alt=""
+        [style.transform]="ballMoveStr"
+      />
+    </div>
+    <!-- airplane icon -->
+    <div class="turn_airplane box">
+      <img
+        src="img/turn_airplane.svg"
+        class="box move"
+        alt=""
+        [style.transform]="airplaneRotationStr"
+      />
+    </div>
+    <!-- Outer markings -->
+    <div class="box">
+      <img src="img/turn_markings_2.svg" class="box" alt="" />
+    </div>
+  </div>
+  <!-- foreground -->
+  <div class="indicator_foreground">
+    <img src="img/indicator_foreground.svg" class="box" alt="" />
+  </div>
+</div>

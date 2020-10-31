@@ -3,39 +3,3 @@
 <pre>
     <code>{{simData | json}}</code>
 </pre>
-
-
-<style>
-/* Global block of an indicator*/
-div.instrument {
-  width: 250px;
-  height: 250px;
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-}
-
-/* The box containing any element of an indicator */
-div.instrument .box {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-div.instrument .speed {
-  transform: rotate(90deg);
-}
-</style>
-
-<div id="debug-airspeed" class="instrument">
-    <img src="img/indicator_background_dashboard.svg" alt="" class="background box">
-    <img src="img/airspeed_markings.svg" alt="" class="box">
-    <div class="speed box">
-        <img src="img/airspeed_hand.svg" alt="" class="box">
-    </div>
-    <div class="mechanics box">
-        <img src="img/indicator_foreground.svg" alt="" class="box">
-    </div>
-</div>

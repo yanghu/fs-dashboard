@@ -27,20 +27,6 @@ export class AttitudeComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  ngAfterViewInit(): void {
-    interval(10)
-      .pipe(
-        map((x) => {
-          let deg = 30 * Math.sin(x / 60);
-          return deg;
-        })
-      )
-      .subscribe((deg: number) => {
-        this.bank = deg;
-        this.pitch = deg;
-      });
-  }
-
   get rotationAngle() {
     return this.bank;
   }

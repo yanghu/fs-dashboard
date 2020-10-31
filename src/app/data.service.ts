@@ -16,6 +16,7 @@ import {
   share,
   map,
   throttle,
+  startWith,
 } from 'rxjs/operators';
 import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
 import { environment } from 'src/environments/environment';
@@ -39,7 +40,7 @@ export class DataService {
   // connection is used.
 
   // dummy observable.
-  private dummyMessage$ = interval(40).pipe(
+  private dummyMessage$ = interval(30).pipe(
     map((x) => {
       let data = new model.flight_panel.SimData();
       let val = Math.sin(x / 20);
@@ -50,26 +51,45 @@ export class DataService {
       data.instruments.pitchAngle = 30 * val;
       data.instruments.headingIndicatorDeg = x;
       data.instruments.verticalSpeed = 20 * val;
-      data.instruments.kohlsmanSettingHg = 30 + val;
+      data.instruments.kohlsmanSettingHg = 29.92;
+      data.instruments.turnIndicatorRate = 10 * val;
+      data.instruments.turnCoordinatorBall = val;
       return data;
     })
   );
 
-  // public message$: Observable<
-  //   model.flight_panel.SimData
-  // > = this.messageSubject$.pipe(
-  //   switchAll(),
-  //   catchError((e) => {
-  //     throw e;
-  //   }),
-  //   // throttle((x) => interval(50)),
-  //   map((data) => model.flight_panel.SimData.decode(data)),
-  //   // Need to multicast back to a subject so different components can subscribe
-  //   // to the same subject.
-  //   share()
-  // );
+  public message$: Observable<
+    model.flight_panel.SimData
+  > = this.messageSubject$.pipe(
+    switchAll(),
+    catchError((e) => {
+      throw e;
+    }),
+    // throttle((x) => interval(50)),
+    map((data) => model.flight_panel.SimData.decode(data)),
+    startWith(this.getDefaultData()),
+    // Need to multicast back to a subject so different components can subscribe
+    // to the same subject.
+    share()
+  );
 
-  public message$ = this.dummyMessage$.pipe(share());
+  public getDefaultData() {
+    let data = new model.flight_panel.SimData();
+    data.instruments = new model.flight_panel.Instrument();
+    let x = 0;
+    let val = 0;
+    data.instruments.indicatedAirspeed = 100 + 100 * val;
+    data.instruments.indicatedAltitude = x;
+    data.instruments.bankAngle = 30 * val;
+    data.instruments.pitchAngle = 30 * val;
+    data.instruments.headingIndicatorDeg = x;
+    data.instruments.verticalSpeed = 20 * val;
+    data.instruments.kohlsmanSettingHg = 29.92;
+    data.instruments.turnIndicatorRate = 10 * val;
+    data.instruments.turnCoordinatorBall = val;
+    return data;
+  }
+  // public message$ = this.dummyMessage$.pipe(share());
 
   public connect(): void {
     if (!this.socket$ || this.socket$.closed || !this.isConnected) {

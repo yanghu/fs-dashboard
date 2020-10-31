@@ -8,6 +8,8 @@ import { SixPackInstrumentsComponent } from './six-pack-instruments/six-pack-ins
 import { GaugeComponent } from './gauge/gauge.component';
 import { AttitudeComponent } from './instruments/attitude.component';
 import { AltimeterComponent } from './instruments/altimeter.component';
+import { AirspeedIndicatorComponent } from './instruments/airspeed-indicator.component';
+import { TurnIndicatorComponent } from './instruments/turn-indicator.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { AltimeterComponent } from './instruments/altimeter.component';
     GaugeComponent,
     AttitudeComponent,
     AltimeterComponent,
+    AirspeedIndicatorComponent,
+    TurnIndicatorComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

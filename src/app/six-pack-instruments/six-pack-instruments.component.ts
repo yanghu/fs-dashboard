@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { NgModel } from '@angular/forms';
 import { catchError, map, pluck, share, startWith, tap } from 'rxjs/operators';
 import { DataService } from '../data.service';
 import { INSTRUMENTS } from '../gauge/gauge';
+import { Beacon } from '../instruments/instrument';
+import { flight_panel } from '../proto/simdata';
 
 declare var $: any; // not required if installed @types/jquery
 
@@ -27,11 +30,23 @@ export class SixPackInstrumentsComponent implements OnInit {
     share()
   );
 
-  get instruments() {
-    return INSTRUMENTS;
-  }
+  beacons: Beacon[] = [
+    { course: 60, show: true, error: 0 },
+    { course: 100, show: true, error: 0 },
+  ];
 
   constructor(private dataService: DataService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dataService.message$.subscribe((data) => {
+      this.beacons[0].course = data.navData.hsi_1.course;
+      this.beacons[0].error = data.avionics.cdi_1.radialError;
+      this.beacons[1].course = data.navData.hsi_2.course;
+      this.beacons[1].error = data.avionics.cdi_2.radialError;
+    });
+  }
+
+  toggleCourseVisibility(idx: number) {
+    this.beacons[idx].show = !this.beacons[idx].show;
+  }
 }

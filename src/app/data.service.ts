@@ -42,54 +42,81 @@ export class DataService {
   // dummy observable.
   private dummyMessage$ = interval(30).pipe(
     map((x) => {
-      let data = new model.flight_panel.SimData();
       let val = Math.sin(x / 20);
-      data.instruments = new model.flight_panel.Instrument();
-      data.instruments.indicatedAirspeed = 100 + 100 * val;
-      data.instruments.indicatedAltitude = x;
-      data.instruments.bankAngle = 30 * val;
-      data.instruments.pitchAngle = 30 * val;
-      data.instruments.headingIndicatorDeg = x;
-      data.instruments.verticalSpeed = 20 * val;
-      data.instruments.kohlsmanSettingHg = 29.92;
-      data.instruments.turnIndicatorRate = 10 * val;
-      data.instruments.turnCoordinatorBall = val;
+      let data = model.flight_panel.SimData.create({
+        instruments: {
+          indicatedAirspeed: 100 + 100 * val,
+          indicatedAltitude: x,
+          bankAngle: 30 * val,
+          pitchAngle: 30 * val,
+          headingIndicatorDeg: x % 360,
+          verticalSpeed: 20 * val,
+          kohlsmanSettingHg: 29.92 + val,
+          turnIndicatorRate: 10 * val,
+          turnCoordinatorBall: val,
+        },
+        navData: {
+          hsi_1: { course: 30 + 30 * val },
+          hsi_2: { course: 60 + 10 * val },
+        },
+        avionics: {
+          cdi_1: {
+            radialError: 50 * val,
+          },
+          cdi_2: {
+            radialError: 50 * val,
+          },
+        },
+      });
       return data;
     })
   );
 
-  public message$: Observable<
-    model.flight_panel.SimData
-  > = this.messageSubject$.pipe(
-    switchAll(),
-    catchError((e) => {
-      throw e;
-    }),
-    // throttle((x) => interval(50)),
-    map((data) => model.flight_panel.SimData.decode(data)),
-    startWith(this.getDefaultData()),
-    // Need to multicast back to a subject so different components can subscribe
-    // to the same subject.
-    share()
-  );
+  // public message$: Observable<
+  //   model.flight_panel.SimData
+  // > = this.messageSubject$.pipe(
+  //   switchAll(),
+  //   catchError((e) => {
+  //     throw e;
+  //   }),
+  //   // throttle((x) => interval(50)),
+  //   map((data) => model.flight_panel.SimData.decode(data)),
+  //   // Need to multicast back to a subject so different components can subscribe
+  //   // to the same subject.
+  //   share()
+  // );
 
-  public getDefaultData() {
-    let data = new model.flight_panel.SimData();
-    data.instruments = new model.flight_panel.Instrument();
+  getDefaultData() {
     let x = 0;
     let val = 0;
-    data.instruments.indicatedAirspeed = 100 + 100 * val;
-    data.instruments.indicatedAltitude = x;
-    data.instruments.bankAngle = 30 * val;
-    data.instruments.pitchAngle = 30 * val;
-    data.instruments.headingIndicatorDeg = x;
-    data.instruments.verticalSpeed = 20 * val;
-    data.instruments.kohlsmanSettingHg = 29.92;
-    data.instruments.turnIndicatorRate = 10 * val;
-    data.instruments.turnCoordinatorBall = val;
+    let data = model.flight_panel.SimData.create({
+      instruments: {
+        indicatedAirspeed: 100 + 100 * val,
+        indicatedAltitude: x,
+        bankAngle: 30 * val,
+        pitchAngle: 30 * val,
+        headingIndicatorDeg: x,
+        verticalSpeed: 20 * val,
+        kohlsmanSettingHg: 29.92 + val,
+        turnIndicatorRate: 10 * val,
+        turnCoordinatorBall: val,
+      },
+      navData: {
+        hsi_1: { course: 60 * val },
+        hsi_2: { course: -60 * val },
+      },
+      avionics: {
+        cdi_1: {
+          radialError: 10,
+        },
+        cdi_2: {
+          radialError: 30,
+        },
+      },
+    });
     return data;
   }
-  // public message$ = this.dummyMessage$.pipe(share());
+  public message$ = this.dummyMessage$.pipe(share());
 
   public connect(): void {
     if (!this.socket$ || this.socket$.closed || !this.isConnected) {

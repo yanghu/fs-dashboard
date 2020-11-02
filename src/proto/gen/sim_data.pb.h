@@ -284,6 +284,7 @@ class SimData PROTOBUF_FINAL :
     kInstrumentsFieldNumber = 5,
     kAircraftControlsFieldNumber = 6,
     kGameDataFieldNumber = 7,
+    kNavDataFieldNumber = 8,
   };
   // .flight_panel.AircraftInfo aircraft_info = 1;
   bool has_aircraft_info() const;
@@ -411,6 +412,24 @@ class SimData PROTOBUF_FINAL :
       ::flight_panel::GameData* game_data);
   ::flight_panel::GameData* unsafe_arena_release_game_data();
 
+  // .flight_panel.NavigationSystem nav_data = 8;
+  bool has_nav_data() const;
+  private:
+  bool _internal_has_nav_data() const;
+  public:
+  void clear_nav_data();
+  const ::flight_panel::NavigationSystem& nav_data() const;
+  ::flight_panel::NavigationSystem* release_nav_data();
+  ::flight_panel::NavigationSystem* mutable_nav_data();
+  void set_allocated_nav_data(::flight_panel::NavigationSystem* nav_data);
+  private:
+  const ::flight_panel::NavigationSystem& _internal_nav_data() const;
+  ::flight_panel::NavigationSystem* _internal_mutable_nav_data();
+  public:
+  void unsafe_arena_set_allocated_nav_data(
+      ::flight_panel::NavigationSystem* nav_data);
+  ::flight_panel::NavigationSystem* unsafe_arena_release_nav_data();
+
   // @@protoc_insertion_point(class_scope:flight_panel.SimData)
  private:
   class _Internal;
@@ -425,6 +444,7 @@ class SimData PROTOBUF_FINAL :
   ::flight_panel::Instrument* instruments_;
   ::flight_panel::AircraftControls* aircraft_controls_;
   ::flight_panel::GameData* game_data_;
+  ::flight_panel::NavigationSystem* nav_data_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sim_5fdata_2eproto;
 };
@@ -3103,6 +3123,89 @@ inline void SimData::set_allocated_game_data(::flight_panel::GameData* game_data
   }
   game_data_ = game_data;
   // @@protoc_insertion_point(field_set_allocated:flight_panel.SimData.game_data)
+}
+
+// .flight_panel.NavigationSystem nav_data = 8;
+inline bool SimData::_internal_has_nav_data() const {
+  return this != internal_default_instance() && nav_data_ != nullptr;
+}
+inline bool SimData::has_nav_data() const {
+  return _internal_has_nav_data();
+}
+inline void SimData::clear_nav_data() {
+  if (GetArena() == nullptr && nav_data_ != nullptr) {
+    delete nav_data_;
+  }
+  nav_data_ = nullptr;
+}
+inline const ::flight_panel::NavigationSystem& SimData::_internal_nav_data() const {
+  const ::flight_panel::NavigationSystem* p = nav_data_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::flight_panel::NavigationSystem*>(
+      &::flight_panel::_NavigationSystem_default_instance_);
+}
+inline const ::flight_panel::NavigationSystem& SimData::nav_data() const {
+  // @@protoc_insertion_point(field_get:flight_panel.SimData.nav_data)
+  return _internal_nav_data();
+}
+inline void SimData::unsafe_arena_set_allocated_nav_data(
+    ::flight_panel::NavigationSystem* nav_data) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(nav_data_);
+  }
+  nav_data_ = nav_data;
+  if (nav_data) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:flight_panel.SimData.nav_data)
+}
+inline ::flight_panel::NavigationSystem* SimData::release_nav_data() {
+  
+  ::flight_panel::NavigationSystem* temp = nav_data_;
+  nav_data_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::flight_panel::NavigationSystem* SimData::unsafe_arena_release_nav_data() {
+  // @@protoc_insertion_point(field_release:flight_panel.SimData.nav_data)
+  
+  ::flight_panel::NavigationSystem* temp = nav_data_;
+  nav_data_ = nullptr;
+  return temp;
+}
+inline ::flight_panel::NavigationSystem* SimData::_internal_mutable_nav_data() {
+  
+  if (nav_data_ == nullptr) {
+    auto* p = CreateMaybeMessage<::flight_panel::NavigationSystem>(GetArena());
+    nav_data_ = p;
+  }
+  return nav_data_;
+}
+inline ::flight_panel::NavigationSystem* SimData::mutable_nav_data() {
+  // @@protoc_insertion_point(field_mutable:flight_panel.SimData.nav_data)
+  return _internal_mutable_nav_data();
+}
+inline void SimData::set_allocated_nav_data(::flight_panel::NavigationSystem* nav_data) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete nav_data_;
+  }
+  if (nav_data) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(nav_data);
+    if (message_arena != submessage_arena) {
+      nav_data = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, nav_data, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  nav_data_ = nav_data;
+  // @@protoc_insertion_point(field_set_allocated:flight_panel.SimData.nav_data)
 }
 
 // -------------------------------------------------------------------

@@ -9,6 +9,7 @@ export namespace flight_panel {
         instruments?: (flight_panel.IInstrument|null);
         aircraftControls?: (flight_panel.IAircraftControls|null);
         gameData?: (flight_panel.IGameData|null);
+        navData?: (flight_panel.INavigationSystem|null);
     }
 
     class SimData implements ISimData {
@@ -20,6 +21,7 @@ export namespace flight_panel {
         public instruments?: (flight_panel.IInstrument|null);
         public aircraftControls?: (flight_panel.IAircraftControls|null);
         public gameData?: (flight_panel.IGameData|null);
+        public navData?: (flight_panel.INavigationSystem|null);
         public static create(properties?: flight_panel.ISimData): flight_panel.SimData;
         public static encode(message: flight_panel.ISimData, writer?: $protobuf.Writer): $protobuf.Writer;
         public static encodeDelimited(message: flight_panel.ISimData, writer?: $protobuf.Writer): $protobuf.Writer;

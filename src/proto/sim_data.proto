@@ -10,6 +10,7 @@ message SimData {
     Instrument instruments = 5;
     AircraftControls aircraft_controls = 6;
     GameData game_data = 7;
+    NavigationSystem nav_data = 8;
 }
 
 message AircraftInfo{

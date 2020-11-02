@@ -23,6 +23,7 @@ extern PROTOBUF_INTERNAL_EXPORT_sim_5fdata_2eproto ::PROTOBUF_NAMESPACE_ID::inte
 extern PROTOBUF_INTERNAL_EXPORT_sim_5fdata_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GameData_sim_5fdata_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_sim_5fdata_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_HorizontalSituationIndicator_sim_5fdata_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_sim_5fdata_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Instrument_sim_5fdata_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_sim_5fdata_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_NavigationSystem_sim_5fdata_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_sim_5fdata_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RadioChannel_sim_5fdata_2eproto;
 namespace flight_panel {
 class SimDataDefaultTypeInternal {
@@ -242,15 +243,16 @@ static void InitDefaultsscc_info_SimData_sim_5fdata_2eproto() {
   ::flight_panel::SimData::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<7> scc_info_SimData_sim_5fdata_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 7, 0, InitDefaultsscc_info_SimData_sim_5fdata_2eproto}, {
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<8> scc_info_SimData_sim_5fdata_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 8, 0, InitDefaultsscc_info_SimData_sim_5fdata_2eproto}, {
       &scc_info_AircraftInfo_sim_5fdata_2eproto.base,
       &scc_info_Avionics_sim_5fdata_2eproto.base,
       &scc_info_AircraftMiscSystem_sim_5fdata_2eproto.base,
       &scc_info_EngineData_sim_5fdata_2eproto.base,
       &scc_info_Instrument_sim_5fdata_2eproto.base,
       &scc_info_AircraftControls_sim_5fdata_2eproto.base,
-      &scc_info_GameData_sim_5fdata_2eproto.base,}};
+      &scc_info_GameData_sim_5fdata_2eproto.base,
+      &scc_info_NavigationSystem_sim_5fdata_2eproto.base,}};
 
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sim_5fdata_2eproto[12];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_sim_5fdata_2eproto[2];
@@ -269,6 +271,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_sim_5fdata_2eproto::offsets[] 
   PROTOBUF_FIELD_OFFSET(::flight_panel::SimData, instruments_),
   PROTOBUF_FIELD_OFFSET(::flight_panel::SimData, aircraft_controls_),
   PROTOBUF_FIELD_OFFSET(::flight_panel::SimData, game_data_),
+  PROTOBUF_FIELD_OFFSET(::flight_panel::SimData, nav_data_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::flight_panel::AircraftInfo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -374,17 +377,17 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_sim_5fdata_2eproto::offsets[] 
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::flight_panel::SimData)},
-  { 12, -1, sizeof(::flight_panel::AircraftInfo)},
-  { 19, -1, sizeof(::flight_panel::Avionics)},
-  { 33, -1, sizeof(::flight_panel::RadioChannel)},
-  { 40, -1, sizeof(::flight_panel::CourseDeviationIndicator)},
-  { 50, -1, sizeof(::flight_panel::AircraftMiscSystem)},
-  { 57, -1, sizeof(::flight_panel::EngineData)},
-  { 67, -1, sizeof(::flight_panel::Instrument)},
-  { 83, -1, sizeof(::flight_panel::AircraftControls)},
-  { 91, -1, sizeof(::flight_panel::GameData)},
-  { 97, -1, sizeof(::flight_panel::NavigationSystem)},
-  { 108, -1, sizeof(::flight_panel::HorizontalSituationIndicator)},
+  { 13, -1, sizeof(::flight_panel::AircraftInfo)},
+  { 20, -1, sizeof(::flight_panel::Avionics)},
+  { 34, -1, sizeof(::flight_panel::RadioChannel)},
+  { 41, -1, sizeof(::flight_panel::CourseDeviationIndicator)},
+  { 51, -1, sizeof(::flight_panel::AircraftMiscSystem)},
+  { 58, -1, sizeof(::flight_panel::EngineData)},
+  { 68, -1, sizeof(::flight_panel::Instrument)},
+  { 84, -1, sizeof(::flight_panel::AircraftControls)},
+  { 92, -1, sizeof(::flight_panel::GameData)},
+  { 98, -1, sizeof(::flight_panel::NavigationSystem)},
+  { 109, -1, sizeof(::flight_panel::HorizontalSituationIndicator)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -403,7 +406,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_sim_5fdata_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\016sim_data.proto\022\014flight_panel\"\350\002\n\007SimDa"
+  "\n\016sim_data.proto\022\014flight_panel\"\232\003\n\007SimDa"
   "ta\0221\n\raircraft_info\030\001 \001(\0132\032.flight_panel"
   ".AircraftInfo\022(\n\010avionics\030\002 \001(\0132\026.flight"
   "_panel.Avionics\022<\n\022aircraft_misc_data\030\003 "
@@ -412,53 +415,54 @@ const char descriptor_table_protodef_sim_5fdata_2eproto[] PROTOBUF_SECTION_VARIA
   "Data\022-\n\013instruments\030\005 \001(\0132\030.flight_panel"
   ".Instrument\0229\n\021aircraft_controls\030\006 \001(\0132\036"
   ".flight_panel.AircraftControls\022)\n\tgame_d"
-  "ata\030\007 \001(\0132\026.flight_panel.GameData\"0\n\014Air"
-  "craftInfo\022\r\n\005model\030\001 \001(\t\022\021\n\tcall_sign\030\002 "
-  "\001(\t\"\231\003\n\010Avionics\0225\n\005cdi_1\030\001 \001(\0132&.flight"
-  "_panel.CourseDeviationIndicator\0225\n\005cdi_2"
-  "\030\002 \001(\0132&.flight_panel.CourseDeviationInd"
-  "icator\022\022\n\nadi_radial\030\003 \001(\001\022/\n\013nav_radio_"
-  "1\030\004 \001(\0132\032.flight_panel.RadioChannel\022/\n\013n"
-  "av_radio_2\030\005 \001(\0132\032.flight_panel.RadioCha"
-  "nnel\022/\n\013com_radio_1\030\006 \001(\0132\032.flight_panel"
-  ".RadioChannel\022/\n\013com_radio_2\030\007 \001(\0132\032.fli"
-  "ght_panel.RadioChannel\022-\n\tadf_radio\030\010 \001("
-  "\0132\032.flight_panel.RadioChannel\022\030\n\020transpo"
-  "nder_code\030\t \001(\t\"9\n\014RadioChannel\022\023\n\013activ"
-  "e_freq\030\001 \001(\001\022\024\n\014standby_freq\030\002 \001(\001\"\363\001\n\030C"
-  "ourseDeviationIndicator\022\017\n\007obs_deg\030\001 \001(\001"
-  "\022\024\n\014radial_error\030\002 \001(\001\022\031\n\021glide_slope_er"
-  "ror\030\003 \001(\001\022C\n\tdirection\030\004 \001(\01620.flight_pa"
-  "nel.CourseDeviationIndicator.Direction\022\030"
-  "\n\020glisdeslope_flag\030\005 \001(\010\"6\n\tDirection\022\017\n"
-  "\013DIR_UNKNOWN\020\000\022\n\n\006DIR_TO\020\001\022\014\n\010DIR_FROM\020\002"
-  "\"D\n\022AircraftMiscSystem\022\030\n\020battery_bus_vo"
-  "lt\030\001 \001(\001\022\024\n\014ambient_temp\030\002 \001(\001\"\202\001\n\nEngin"
-  "eData\022\013\n\003rpm\030\001 \001(\001\022\027\n\017rpm_ambiemt_pct\030\002 "
-  "\001(\001\022\033\n\023engine_elapsed_time\030\003 \001(\001\022\027\n\017fuel"
-  "_left_level\030\004 \001(\001\022\030\n\020fuel_right_level\030\005 "
-  "\001(\001\"\250\002\n\nInstrument\022\032\n\022indicated_altitude"
-  "\030\001 \001(\001\022\033\n\023kohlsman_setting_hg\030\002 \001(\001\022\026\n\016v"
-  "ertical_speed\030\003 \001(\001\022\023\n\013pitch_angle\030\004 \001(\001"
-  "\022\022\n\nbank_angle\030\005 \001(\001\022\032\n\022indicated_airspe"
-  "ed\030\006 \001(\001\022\025\n\rtrue_airspeed\030\007 \001(\001\022\022\n\nmach_"
-  "speed\030\010 \001(\001\022\033\n\023turn_indicator_rate\030\t \001(\001"
-  "\022\035\n\025turn_coordinator_ball\030\n \001(\001\022\035\n\025headi"
-  "ng_indicator_deg\030\013 \001(\001\"[\n\020AircraftContro"
-  "ls\022\037\n\027elevator_trim_indicator\030\001 \001(\001\022\023\n\013f"
-  "laps_count\030\002 \001(\005\022\021\n\tflaps_pos\030\003 \001(\005\"\035\n\010G"
-  "ameData\022\021\n\tconnected\030\001 \001(\010\"\364\002\n\020Navigatio"
-  "nSystem\022C\n\021active_nav_source\030\001 \001(\0162(.fli"
-  "ght_panel.NavigationSystem.NavSource\0229\n\005"
-  "hsi_1\030\002 \001(\0132*.flight_panel.HorizontalSit"
-  "uationIndicator\0229\n\005hsi_2\030\003 \001(\0132*.flight_"
-  "panel.HorizontalSituationIndicator\022\036\n\026ne"
-  "xt_waypoint_distance\030\023 \001(\001\022\032\n\022next_waypo"
-  "int_name\030\024 \001(\t\022\032\n\022last_waypoint_name\030\025 \001"
-  "(\t\"M\n\tNavSource\022\017\n\013NAV_UNKNOWN\020\000\022\020\n\014NAV_"
-  "SOURCE_1\020\001\022\020\n\014NAV_SOURCE_2\020\002\022\013\n\007NAV_FMS\020"
-  "\003\".\n\034HorizontalSituationIndicator\022\016\n\006cou"
-  "rse\030\001 \001(\001b\006proto3"
+  "ata\030\007 \001(\0132\026.flight_panel.GameData\0220\n\010nav"
+  "_data\030\010 \001(\0132\036.flight_panel.NavigationSys"
+  "tem\"0\n\014AircraftInfo\022\r\n\005model\030\001 \001(\t\022\021\n\tca"
+  "ll_sign\030\002 \001(\t\"\231\003\n\010Avionics\0225\n\005cdi_1\030\001 \001("
+  "\0132&.flight_panel.CourseDeviationIndicato"
+  "r\0225\n\005cdi_2\030\002 \001(\0132&.flight_panel.CourseDe"
+  "viationIndicator\022\022\n\nadi_radial\030\003 \001(\001\022/\n\013"
+  "nav_radio_1\030\004 \001(\0132\032.flight_panel.RadioCh"
+  "annel\022/\n\013nav_radio_2\030\005 \001(\0132\032.flight_pane"
+  "l.RadioChannel\022/\n\013com_radio_1\030\006 \001(\0132\032.fl"
+  "ight_panel.RadioChannel\022/\n\013com_radio_2\030\007"
+  " \001(\0132\032.flight_panel.RadioChannel\022-\n\tadf_"
+  "radio\030\010 \001(\0132\032.flight_panel.RadioChannel\022"
+  "\030\n\020transponder_code\030\t \001(\t\"9\n\014RadioChanne"
+  "l\022\023\n\013active_freq\030\001 \001(\001\022\024\n\014standby_freq\030\002"
+  " \001(\001\"\363\001\n\030CourseDeviationIndicator\022\017\n\007obs"
+  "_deg\030\001 \001(\001\022\024\n\014radial_error\030\002 \001(\001\022\031\n\021glid"
+  "e_slope_error\030\003 \001(\001\022C\n\tdirection\030\004 \001(\01620"
+  ".flight_panel.CourseDeviationIndicator.D"
+  "irection\022\030\n\020glisdeslope_flag\030\005 \001(\010\"6\n\tDi"
+  "rection\022\017\n\013DIR_UNKNOWN\020\000\022\n\n\006DIR_TO\020\001\022\014\n\010"
+  "DIR_FROM\020\002\"D\n\022AircraftMiscSystem\022\030\n\020batt"
+  "ery_bus_volt\030\001 \001(\001\022\024\n\014ambient_temp\030\002 \001(\001"
+  "\"\202\001\n\nEngineData\022\013\n\003rpm\030\001 \001(\001\022\027\n\017rpm_ambi"
+  "emt_pct\030\002 \001(\001\022\033\n\023engine_elapsed_time\030\003 \001"
+  "(\001\022\027\n\017fuel_left_level\030\004 \001(\001\022\030\n\020fuel_righ"
+  "t_level\030\005 \001(\001\"\250\002\n\nInstrument\022\032\n\022indicate"
+  "d_altitude\030\001 \001(\001\022\033\n\023kohlsman_setting_hg\030"
+  "\002 \001(\001\022\026\n\016vertical_speed\030\003 \001(\001\022\023\n\013pitch_a"
+  "ngle\030\004 \001(\001\022\022\n\nbank_angle\030\005 \001(\001\022\032\n\022indica"
+  "ted_airspeed\030\006 \001(\001\022\025\n\rtrue_airspeed\030\007 \001("
+  "\001\022\022\n\nmach_speed\030\010 \001(\001\022\033\n\023turn_indicator_"
+  "rate\030\t \001(\001\022\035\n\025turn_coordinator_ball\030\n \001("
+  "\001\022\035\n\025heading_indicator_deg\030\013 \001(\001\"[\n\020Airc"
+  "raftControls\022\037\n\027elevator_trim_indicator\030"
+  "\001 \001(\001\022\023\n\013flaps_count\030\002 \001(\005\022\021\n\tflaps_pos\030"
+  "\003 \001(\005\"\035\n\010GameData\022\021\n\tconnected\030\001 \001(\010\"\364\002\n"
+  "\020NavigationSystem\022C\n\021active_nav_source\030\001"
+  " \001(\0162(.flight_panel.NavigationSystem.Nav"
+  "Source\0229\n\005hsi_1\030\002 \001(\0132*.flight_panel.Hor"
+  "izontalSituationIndicator\0229\n\005hsi_2\030\003 \001(\013"
+  "2*.flight_panel.HorizontalSituationIndic"
+  "ator\022\036\n\026next_waypoint_distance\030\023 \001(\001\022\032\n\022"
+  "next_waypoint_name\030\024 \001(\t\022\032\n\022last_waypoin"
+  "t_name\030\025 \001(\t\"M\n\tNavSource\022\017\n\013NAV_UNKNOWN"
+  "\020\000\022\020\n\014NAV_SOURCE_1\020\001\022\020\n\014NAV_SOURCE_2\020\002\022\013"
+  "\n\007NAV_FMS\020\003\".\n\034HorizontalSituationIndica"
+  "tor\022\016\n\006course\030\001 \001(\001b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sim_5fdata_2eproto_deps[1] = {
 };
@@ -478,7 +482,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_sim
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sim_5fdata_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sim_5fdata_2eproto = {
-  false, false, descriptor_table_protodef_sim_5fdata_2eproto, "sim_data.proto", 2217,
+  false, false, descriptor_table_protodef_sim_5fdata_2eproto, "sim_data.proto", 2267,
   &descriptor_table_sim_5fdata_2eproto_once, descriptor_table_sim_5fdata_2eproto_sccs, descriptor_table_sim_5fdata_2eproto_deps, 12, 0,
   schemas, file_default_instances, TableStruct_sim_5fdata_2eproto::offsets,
   file_level_metadata_sim_5fdata_2eproto, 12, file_level_enum_descriptors_sim_5fdata_2eproto, file_level_service_descriptors_sim_5fdata_2eproto,
@@ -553,6 +557,8 @@ void SimData::InitAsDefaultInstance() {
       ::flight_panel::AircraftControls::internal_default_instance());
   ::flight_panel::_SimData_default_instance_._instance.get_mutable()->game_data_ = const_cast< ::flight_panel::GameData*>(
       ::flight_panel::GameData::internal_default_instance());
+  ::flight_panel::_SimData_default_instance_._instance.get_mutable()->nav_data_ = const_cast< ::flight_panel::NavigationSystem*>(
+      ::flight_panel::NavigationSystem::internal_default_instance());
 }
 class SimData::_Internal {
  public:
@@ -563,6 +569,7 @@ class SimData::_Internal {
   static const ::flight_panel::Instrument& instruments(const SimData* msg);
   static const ::flight_panel::AircraftControls& aircraft_controls(const SimData* msg);
   static const ::flight_panel::GameData& game_data(const SimData* msg);
+  static const ::flight_panel::NavigationSystem& nav_data(const SimData* msg);
 };
 
 const ::flight_panel::AircraftInfo&
@@ -592,6 +599,10 @@ SimData::_Internal::aircraft_controls(const SimData* msg) {
 const ::flight_panel::GameData&
 SimData::_Internal::game_data(const SimData* msg) {
   return *msg->game_data_;
+}
+const ::flight_panel::NavigationSystem&
+SimData::_Internal::nav_data(const SimData* msg) {
+  return *msg->nav_data_;
 }
 SimData::SimData(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
@@ -637,14 +648,19 @@ SimData::SimData(const SimData& from)
   } else {
     game_data_ = nullptr;
   }
+  if (from._internal_has_nav_data()) {
+    nav_data_ = new ::flight_panel::NavigationSystem(*from.nav_data_);
+  } else {
+    nav_data_ = nullptr;
+  }
   // @@protoc_insertion_point(copy_constructor:flight_panel.SimData)
 }
 
 void SimData::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_SimData_sim_5fdata_2eproto.base);
   ::memset(&aircraft_info_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&game_data_) -
-      reinterpret_cast<char*>(&aircraft_info_)) + sizeof(game_data_));
+      reinterpret_cast<char*>(&nav_data_) -
+      reinterpret_cast<char*>(&aircraft_info_)) + sizeof(nav_data_));
 }
 
 SimData::~SimData() {
@@ -662,6 +678,7 @@ void SimData::SharedDtor() {
   if (this != internal_default_instance()) delete instruments_;
   if (this != internal_default_instance()) delete aircraft_controls_;
   if (this != internal_default_instance()) delete game_data_;
+  if (this != internal_default_instance()) delete nav_data_;
 }
 
 void SimData::ArenaDtor(void* object) {
@@ -713,6 +730,10 @@ void SimData::Clear() {
     delete game_data_;
   }
   game_data_ = nullptr;
+  if (GetArena() == nullptr && nav_data_ != nullptr) {
+    delete nav_data_;
+  }
+  nav_data_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -770,6 +791,13 @@ const char* SimData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::in
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           ptr = ctx->ParseMessage(_internal_mutable_game_data(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .flight_panel.NavigationSystem nav_data = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
+          ptr = ctx->ParseMessage(_internal_mutable_nav_data(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -857,6 +885,14 @@ failure:
         7, _Internal::game_data(this), target, stream);
   }
 
+  // .flight_panel.NavigationSystem nav_data = 8;
+  if (this->has_nav_data()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        8, _Internal::nav_data(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -922,6 +958,13 @@ size_t SimData::ByteSizeLong() const {
         *game_data_);
   }
 
+  // .flight_panel.NavigationSystem nav_data = 8;
+  if (this->has_nav_data()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *nav_data_);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -974,6 +1017,9 @@ void SimData::MergeFrom(const SimData& from) {
   if (from.has_game_data()) {
     _internal_mutable_game_data()->::flight_panel::GameData::MergeFrom(from._internal_game_data());
   }
+  if (from.has_nav_data()) {
+    _internal_mutable_nav_data()->::flight_panel::NavigationSystem::MergeFrom(from._internal_nav_data());
+  }
 }
 
 void SimData::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -998,8 +1044,8 @@ void SimData::InternalSwap(SimData* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SimData, game_data_)
-      + sizeof(SimData::game_data_)
+      PROTOBUF_FIELD_OFFSET(SimData, nav_data_)
+      + sizeof(SimData::nav_data_)
       - PROTOBUF_FIELD_OFFSET(SimData, aircraft_info_)>(
           reinterpret_cast<char*>(&aircraft_info_),
           reinterpret_cast<char*>(&other->aircraft_info_));

@@ -38,6 +38,7 @@
              * @property {flight_panel.IInstrument|null} [instruments] SimData instruments
              * @property {flight_panel.IAircraftControls|null} [aircraftControls] SimData aircraftControls
              * @property {flight_panel.IGameData|null} [gameData] SimData gameData
+             * @property {flight_panel.INavigationSystem|null} [navData] SimData navData
              */
     
             /**
@@ -112,6 +113,14 @@
             SimData.prototype.gameData = null;
     
             /**
+             * SimData navData.
+             * @member {flight_panel.INavigationSystem|null|undefined} navData
+             * @memberof flight_panel.SimData
+             * @instance
+             */
+            SimData.prototype.navData = null;
+    
+            /**
              * Creates a new SimData instance using the specified properties.
              * @function create
              * @memberof flight_panel.SimData
@@ -149,6 +158,8 @@
                     $root.flight_panel.AircraftControls.encode(message.aircraftControls, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
                 if (message.gameData != null && Object.hasOwnProperty.call(message, "gameData"))
                     $root.flight_panel.GameData.encode(message.gameData, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
+                if (message.navData != null && Object.hasOwnProperty.call(message, "navData"))
+                    $root.flight_panel.NavigationSystem.encode(message.navData, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
                 return writer;
             };
     
@@ -203,6 +214,9 @@
                         break;
                     case 7:
                         message.gameData = $root.flight_panel.GameData.decode(reader, reader.uint32());
+                        break;
+                    case 8:
+                        message.navData = $root.flight_panel.NavigationSystem.decode(reader, reader.uint32());
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -274,6 +288,11 @@
                     if (error)
                         return "gameData." + error;
                 }
+                if (message.navData != null && message.hasOwnProperty("navData")) {
+                    var error = $root.flight_panel.NavigationSystem.verify(message.navData);
+                    if (error)
+                        return "navData." + error;
+                }
                 return null;
             };
     
@@ -324,6 +343,11 @@
                         throw TypeError(".flight_panel.SimData.gameData: object expected");
                     message.gameData = $root.flight_panel.GameData.fromObject(object.gameData);
                 }
+                if (object.navData != null) {
+                    if (typeof object.navData !== "object")
+                        throw TypeError(".flight_panel.SimData.navData: object expected");
+                    message.navData = $root.flight_panel.NavigationSystem.fromObject(object.navData);
+                }
                 return message;
             };
     
@@ -348,6 +372,7 @@
                     object.instruments = null;
                     object.aircraftControls = null;
                     object.gameData = null;
+                    object.navData = null;
                 }
                 if (message.aircraftInfo != null && message.hasOwnProperty("aircraftInfo"))
                     object.aircraftInfo = $root.flight_panel.AircraftInfo.toObject(message.aircraftInfo, options);
@@ -363,6 +388,8 @@
                     object.aircraftControls = $root.flight_panel.AircraftControls.toObject(message.aircraftControls, options);
                 if (message.gameData != null && message.hasOwnProperty("gameData"))
                     object.gameData = $root.flight_panel.GameData.toObject(message.gameData, options);
+                if (message.navData != null && message.hasOwnProperty("navData"))
+                    object.navData = $root.flight_panel.NavigationSystem.toObject(message.navData, options);
                 return object;
             };
     

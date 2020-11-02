@@ -1,0 +1,133 @@
+<div class="instrument">
+  <div class="background box">
+    <img
+      src="img/indicator_background_dashboard.svg"
+      class="box"
+      [style.display]="showBox ? 'block' : 'none'"
+    />
+  </div>
+  <!-- The gauge -->
+  <div class="inner box">
+    <!-- The knobs -->
+    <!-- <div class="heading_bg box">
+      <img src="img/heading_background.svg" class="box" alt="" />
+    </div> -->
+
+    <!-- The yaw marks-->
+    <div class="heading_rot move box" [style.transform]="headingRotationStr">
+      <img src="img/heading_yaw.svg" class="box" />
+
+      <!-- beacon2 hand -->
+      <div class="beacon box">
+        <svg
+          class="box move course2"
+          [style.display]="showBeacon(1) ? 'block' : 'none'"
+          [style.transform]="beaconRotationStr(1)"
+          viewBox="0 0 250 250"
+        >
+          <defs>
+            <symbol id="arrow" xRef="0" yRef="0">
+              <polygon height="25" points="2 22, 11 2, 20 22" />
+            </symbol>
+            <symbol id="body_rect">
+              <rect x="11" y="10" width="8" height="22" />
+            </symbol>
+            <symbol id="move_rect">
+              <rect x="11" y="10" width="8" height="43" />
+            </symbol>
+          </defs>
+          <use xlink:href="#move_rect" x="110" y="138" />
+          <!-- Middle line -->
+          <use
+            xlink:href="#move_rect"
+            x="110"
+            y="92"
+            [style.transform]="crsError(0)"
+          />
+          <use xlink:href="#body_rect" x="110" y="67" />
+          <use xlink:href="#arrow" x="114" y="55" />
+        </svg>
+      </div>
+
+      <!-- beacon1 hand -->
+      <div class="beacon box">
+        <svg
+          class="box move course1"
+          [style.display]="showBeacon(0) ? 'block' : 'none'"
+          [style.transform]="beaconRotationStr(0)"
+          viewBox="0 0 250 250"
+        >
+          <defs>
+            <marker
+              id="arrow1"
+              markerWidth="8"
+              marketHeight="8"
+              refX="0"
+              refY="1.5"
+              orient="auto"
+            >
+              <polygon points="0 0, 5 1.5, 0 3" />
+            </marker>
+          </defs>
+          <!-- "tail" line -->
+          <line x1="125" y1="190" x2="125" y2="150" />
+          <!-- Middle line -->
+          <line
+            x1="125"
+            y1="148"
+            x2="125"
+            y2="102"
+            [style.transform]="crsError(0)"
+          />
+          <line x1="125" y1="100" x2="125" y2="78" marker-end="url(#arrow1)" />
+        </svg>
+      </div>
+    </div>
+
+    <div class="heading_markings box">
+      <img src="img/heading_markings.svg" class="box" alt="" />
+    </div>
+  </div>
+  <!-- foreground -->
+  <div class="indicator_foreground">
+    <img src="img/indicator_foreground.svg" class="box" alt="" />
+  </div>
+  <div class="heading_text box">
+    <svg viewBox="0 0 250 50">
+      <rect x="105" y="19" width="45" height="17" fill="black"></rect>
+      <text x="130" y="29">{{ headingText }}</text>
+    </svg>
+  </div>
+  <div class="button_container box">
+    <svg class="box buttons" viewBox="0 0 250 250">
+      <!-- Course 1 toggle -->
+      <g transform="translate(10,20)">
+        <rect
+          height="18"
+          width="40"
+          fill="yellow"
+          [class.inactive]="!showBeacon(0)"
+          (click)="crsToggle(0)"
+        />
+        <svg width="40" height="40">
+          <text x="50%" y="25%">CRS1</text>
+          <text x="50%" class="frequency">122.50</text>
+        </svg>
+      </g>
+      <!-- Course 2 toggle -->
+      <g transform="translate(200,20)">
+        <rect
+          height="18"
+          width="40"
+          fill="green"
+          [class.inactive]="!showBeacon(1)"
+          (click)="crsToggle(1)"
+        />
+        <svg width="40" height="40">
+          <text x="50%" y="25%">CRS2</text>
+          <text x="50%" class="frequency">123.15</text>
+        </svg>
+      </g>
+    </svg>
+  </div>
+</div>

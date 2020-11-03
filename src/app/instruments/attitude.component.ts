@@ -10,7 +10,7 @@ import { map, tap } from 'rxjs/operators';
 @Component({
   selector: 'app-attitude',
   templateUrl: './attitude.component.html',
-  styleUrls: ['./instrument.css'],
+  styleUrls: ['./instrument.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AttitudeComponent implements OnInit {

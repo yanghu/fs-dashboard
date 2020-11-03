@@ -11,7 +11,7 @@ declare var $: any; // not required if installed @types/jquery
 @Component({
   selector: 'app-six-pack-instruments',
   templateUrl: './six-pack-instruments.component.html',
-  styleUrls: ['./six-pack-instruments.component.css'],
+  styleUrls: ['./six-pack-instruments.component.less'],
 })
 export class SixPackInstrumentsComponent implements OnInit {
   // Data observable. Only pluck the "instruments" field.

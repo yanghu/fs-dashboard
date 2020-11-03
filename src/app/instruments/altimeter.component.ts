@@ -8,7 +8,7 @@ import {
 @Component({
   selector: 'app-altimeter',
   templateUrl: './altimeter.component.html',
-  styleUrls: ['./instrument.css'],
+  styleUrls: ['./instrument.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AltimeterComponent implements OnInit {

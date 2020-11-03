@@ -4,7 +4,7 @@ import { rotationStr } from './instrument';
 @Component({
   selector: 'app-variometer',
   templateUrl: './variometer.component.html',
-  styleUrls: ['./instrument.css'],
+  styleUrls: ['./instrument.less'],
 })
 export class VariometerComponent implements OnInit {
   @Input() speed = 10;

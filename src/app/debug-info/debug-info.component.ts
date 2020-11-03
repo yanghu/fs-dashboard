@@ -8,7 +8,7 @@ declare var $: any; // not required if installed @types/jquery
 @Component({
   selector: 'app-debug-info',
   templateUrl: './debug-info.component.html',
-  styleUrls: ['./debug-info.component.css'],
+  styleUrls: ['./debug-info.component.less'],
   // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DebugInfoComponent implements OnInit {

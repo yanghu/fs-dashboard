@@ -11,7 +11,7 @@ import { Gauge } from './gauge';
 @Component({
   selector: 'app-gauge',
   templateUrl: './gauge.component.html',
-  styleUrls: ['./gauge.component.css'],
+  styleUrls: ['./gauge.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GaugeComponent implements OnInit {

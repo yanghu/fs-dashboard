@@ -4,7 +4,7 @@ import { rotationStr, Beacon } from './instrument';
 @Component({
   selector: 'app-heading-indicator',
   templateUrl: './heading-indicator.component.html',
-  styleUrls: ['./instrument.css'],
+  styleUrls: ['./instrument.less'],
 })
 export class HeadingIndicatorComponent implements OnInit {
   @Input() heading: number = 0;

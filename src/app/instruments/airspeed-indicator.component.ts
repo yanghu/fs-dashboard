@@ -9,7 +9,7 @@ import { rotationStr } from './instrument';
 @Component({
   selector: 'app-airspeed-indicator',
   templateUrl: './airspeed-indicator.component.html',
-  styleUrls: ['./instrument.css'],
+  styleUrls: ['./instrument.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AirspeedIndicatorComponent implements OnInit {

@@ -9,7 +9,7 @@ import { rotationStr } from './instrument';
 @Component({
   selector: 'app-turn-indicator',
   templateUrl: './turn-indicator.component.html',
-  styleUrls: ['./instrument.css'],
+  styleUrls: ['./instrument.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TurnIndicatorComponent implements OnInit {

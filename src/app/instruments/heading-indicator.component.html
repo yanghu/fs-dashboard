@@ -3,7 +3,7 @@
     <img
       src="img/indicator_background_dashboard.svg"
       class="box"
-      [style.display]="showBox ? 'block' : 'none'"
+      *ngIf="showBox"
     />
   </div>
   <!-- The gauge -->
@@ -21,7 +21,7 @@
       <div class="beacon box">
         <svg
           class="box move course2"
-          [style.display]="showBeacon(1) ? 'block' : 'none'"
+          *ngIf="showBeacon(1)"
           [style.transform]="beaconRotationStr(1)"
           viewBox="0 0 250 250"
         >
@@ -52,8 +52,8 @@
       <!-- beacon1 hand -->
       <div class="beacon box">
         <svg
+          *ngIf="showBeacon(0)"
           class="box move course1"
-          [style.display]="showBeacon(0) ? 'block' : 'none'"
           [style.transform]="beaconRotationStr(0)"
           viewBox="0 0 250 250"
         >

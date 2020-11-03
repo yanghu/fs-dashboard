@@ -6,6 +6,20 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-{{ title }}
-<app-debug-info></app-debug-info>
-<app-six-pack-instruments></app-six-pack-instruments>
+
+<mat-sidenav-container>
+  <mat-sidenav mode="side" [opened]="true">
+    <mat-nav-list>
+      <mat-list-item>
+        <mat-slide-toggle>
+          <mat-icon>offline_bolt</mat-icon>
+        </mat-slide-toggle>
+        <!-- <span matLine>Connect</span> -->
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-six-pack-instruments></app-six-pack-instruments>
+    <app-debug-info></app-debug-info>
+  </mat-sidenav-content>
+</mat-sidenav-container>

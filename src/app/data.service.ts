@@ -39,6 +39,7 @@ export class DataService {
   // The public `message` use `switchAll` pipe so only the most recent
   // connection is used.
 
+  public message$: ConnectableObservable<model.flight_panel.SimData>;
   // dummy observable.
   private dummyMessage$ = interval(30).pipe(
     map((x) => {
@@ -72,51 +73,36 @@ export class DataService {
     })
   );
 
-  // public message$: Observable<
-  //   model.flight_panel.SimData
-  // > = this.messageSubject$.pipe(
-  //   switchAll(),
-  //   catchError((e) => {
-  //     throw e;
-  //   }),
-  //   // throttle((x) => interval(50)),
-  //   map((data) => model.flight_panel.SimData.decode(data)),
-  //   // Need to multicast back to a subject so different components can subscribe
-  //   // to the same subject.
-  //   share()
-  // );
-
-  getDefaultData() {
-    let x = 0;
-    let val = 0;
-    let data = model.flight_panel.SimData.create({
-      instruments: {
-        indicatedAirspeed: 100 + 100 * val,
-        indicatedAltitude: x,
-        bankAngle: 30 * val,
-        pitchAngle: 30 * val,
-        headingIndicatorDeg: x,
-        verticalSpeed: 20 * val,
-        kohlsmanSettingHg: 29.92 + val,
-        turnIndicatorRate: 10 * val,
-        turnCoordinatorBall: val,
-      },
-      navData: {
-        hsi_1: { course: 60 * val },
-        hsi_2: { course: -60 * val },
-      },
-      avionics: {
-        cdi_1: {
-          radialError: 10,
-        },
-        cdi_2: {
-          radialError: 30,
-        },
-      },
-    });
-    return data;
+  constructor() {
+    if (!environment.production && environment.useFakeBackend) {
+      this.message$ = this.dummyMessage$.pipe(
+        publish()
+      ) as ConnectableObservable<model.flight_panel.SimData>;
+    } else {
+      this.message$ = this.messageSubject$.pipe(
+        switchAll(),
+        catchError((e) => {
+          throw e;
+        }),
+        // throttle((x) => interval(50)),
+        map((data) => model.flight_panel.SimData.decode(data)),
+        // Need to multicast back to a subject so different components can subscribe
+        // to the same subject.
+        publish()
+      ) as ConnectableObservable<model.flight_panel.SimData>;
+    }
   }
-  public message$ = this.dummyMessage$.pipe(share());
+
+  public start(): void {
+    if (environment.production || !environment.useFakeBackend) {
+      this.connect();
+    }
+    this.message$.connect();
+  }
+
+  public stop(): void {
+    this.close();
+  }
 
   public connect(): void {
     if (!this.socket$ || this.socket$.closed || !this.isConnected) {

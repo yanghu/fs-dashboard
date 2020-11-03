@@ -1,10 +1,10 @@
 @font-face {
   font-family: "LCD";
-  src: url("/font/lcd-font.eot"); /* IE9*/
-  src: url("/font/lcd-font.eot?#iefix") format("embedded-opentype"),
-    /* IE6-IE8 */ url("/font/lcd-font.woff2") format("woff2"),
-    /* chrome、firefox */ url("/font/lcd-font.woff") format("woff"),
-    /* chrome、firefox */ url("/font/lcd-font.ttf") format("truetype"),
+  src: url("/assets/font/lcd-font.eot"); /* IE9*/
+  src: url("/assets/font/lcd-font.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("/assets/font/lcd-font.woff2") format("woff2"),
+    /* chrome、firefox */ url("/assets/font/lcd-font.woff") format("woff"),
+    /* chrome、firefox */ url("/assets/font/lcd-font.ttf") format("truetype"),
     /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-      url("/font/lcd-font.svg#LCD") format("svg"); /* iOS 4.1- */
+      url("/assets/font/lcd-font.svg#LCD") format("svg"); /* iOS 4.1- */
 }

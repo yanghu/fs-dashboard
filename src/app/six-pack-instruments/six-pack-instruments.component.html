@@ -3,6 +3,7 @@
   <app-attitude
     [bank]="((data$ | async) || { bankAngle: 0 }).bankAngle"
     [pitch]="((data$ | async) || { pitchAngle: 0 }).pitchAngle"
+    [showBox]="true"
   ></app-attitude>
   <app-altimeter
     [altitude]="((data$ | async) || { indicatedAltitude: 0 }).indicatedAltitude"

@@ -39,6 +39,6 @@ export class DebugInfoComponent implements OnInit {
   }
 
   reconnect() {
-    this.dataService.connect();
+    this.dataService.start();
   }
 }

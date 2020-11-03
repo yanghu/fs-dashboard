@@ -1,3 +1,7 @@
+.instruments {
+  background-color: #444547;
+}
+
 div.instrument {
   width: 200px;
   height: 200px;
@@ -17,7 +21,7 @@ div.instrument .box {
 
 /* The box containing any element of an indicator */
 div.instrument .background {
-  display: none;
+  /* display: none; */
 }
 
 div.instrument .move {

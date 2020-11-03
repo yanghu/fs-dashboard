@@ -1,11 +1,6 @@
 <div class="instrument">
-  <div class="background box">
-    <img
-      src="img/indicator_background_dashboard.svg"
-      class="box"
-      alt=""
-      [style.display]="showBox ? 'block' : 'none'"
-    />
+  <div *ngIf="showBox" class="background box">
+    <img src="img/indicator_background_dashboard.svg" class="box" alt="" />
   </div>
   <div class="inner box" [style.transform]="'rotate(' + bank + 'deg)'">
     <div class="box">

@@ -1,8 +1,3 @@
-@font-face {
-  font-family: "LCD";
-  src: url("/font/lcd-font.svg#LCD") format("svg"); /* iOS 4.1- */
-}
-
 div.instrument {
   width: 200px;
   height: 200px;
@@ -41,11 +36,11 @@ svg.buttons text {
   pointer-events: none;
 }
 
-svg.buttons text.frequency {
+svg.buttons g.frequency {
   font-size: 14px;
   font-family: "LCD";
   pointer-events: none;
-  transform: translateY(65%);
+  transform: translate(50%, 65%);
   fill: red;
 }
 

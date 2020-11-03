@@ -1,3 +1,5 @@
+![Deploy to Github Pages](https://github.com/yanghu/fs-dashboard/workflows/Deploy%20to%20Github%20Pages/badge.svg)
+
 # FlightDashboard
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.7.

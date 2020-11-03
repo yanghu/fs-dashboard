@@ -26,7 +26,7 @@ jobs:
 
     - name: Prepare and deploy
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.PAGES_TOKEN }}
       run: |
         npm install
         npm run ng -- deploy --repo=https://github.com/yanghu/flight-pages.git --base-href=/flight-pages/ --name="yanghu" --email="hueyhy@gmail.com" --no-silent

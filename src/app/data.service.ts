@@ -74,7 +74,7 @@ export class DataService {
   );
 
   constructor() {
-    if (!environment.production && environment.useFakeBackend) {
+    if (environment.useFakeBackend) {
       this.message$ = this.dummyMessage$.pipe(
         publish()
       ) as ConnectableObservable<model.flight_panel.SimData>;
@@ -94,7 +94,7 @@ export class DataService {
   }
 
   public start(): void {
-    if (environment.production || !environment.useFakeBackend) {
+    if (!environment.useFakeBackend) {
       this.connect();
     }
     this.message$.connect();

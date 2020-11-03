@@ -27,19 +27,16 @@ export class HeadingIndicatorComponent implements OnInit {
     return this.heading.toFixed(0) + '	°';
   }
   beaconRotationStr(idx: number) {
-    let beacon = this.beacons.length > idx ? this.beacons[idx] : { course: 90 };
-    return rotationStr(beacon.course);
+    return rotationStr(this.beacons?.[idx].course || 90);
   }
 
   crsError(idx: number) {
-    let beacon = this.beacons.length > idx ? this.beacons[idx] : { error: 0 };
-    return `translateX(${(beacon.error / 100) * this.MAX_TRANS_X}%)`;
+    let error = this.beacons?.[idx].error || 0;
+    return `translateX(${(error / 100) * this.MAX_TRANS_X}%)`;
   }
 
   showBeacon(idx: number) {
-    let beacon =
-      this.beacons.length > idx ? this.beacons[idx] : { show: false };
-    return beacon.show;
+    return this.beacons?.[idx].show;
   }
 
   crsToggle(idx: number) {
@@ -52,7 +49,6 @@ export class HeadingIndicatorComponent implements OnInit {
       ['yellow', '#CCFFCC'],
       ['green', 'red'],
     ];
-    let show = this.beacons.length > idx ? this.beacons[idx].show : false;
-    return show ? colors[idx][0] : colors[idx][1];
+    return this.beacons?.[idx].show ? colors[idx][0] : colors[idx][1];
   }
 }

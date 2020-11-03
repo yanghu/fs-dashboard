@@ -1,75 +1,77 @@
 .instruments {
-  background-color: #444547;
+  background-color: black;
 }
 
 div.instrument {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   position: relative;
   display: inline-block;
   overflow: hidden;
+
+  /* The box containing any element of an indicator */
+  .box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .move {
+    will-change: transform;
+  }
 }
 
-/* The box containing any element of an indicator */
-div.instrument .box {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
+svg {
+  text {
+    text-anchor: middle;
+    alignment-baseline: middle;
+  }
 
-/* The box containing any element of an indicator */
-div.instrument .background {
-  /* display: none; */
-}
+  /* SVG buttons */
+  &.buttons {
+    text {
+      font-size: 12px;
+      font-weight: bold;
+      pointer-events: none;
+    }
 
-div.instrument .move {
-  will-change: transform;
-}
+    g.frequency text {
+      font-size: 11px;
+      font-family: "Digital Numbers", sans-serif;
+      font-style: normal;
+      text-shadow: rgb(255, 255, 255) 0px 0px 1px !important;
+      // font-family: "Orbitron", sans-serif;
+      // font-family: "Audiowide", cursive;
+      // font-family: "Atomic Age", cursive;
+      // font-family: "Rationale", sans-serif;
 
-svg text {
-  text-anchor: middle;
-  alignment-baseline: middle;
-}
+      pointer-events: none;
+      transform: translate(50%, 70%);
+      fill: red;
+    }
 
-/* SVG buttons */
-svg.buttons text {
-  font-size: 12px;
-  font-weight: bold;
-  pointer-events: none;
-}
+    rect {
+      height: 30;
+      width: 30;
+      rx: 5;
+      ry: 5;
+      &.inactive {
+        fill: grey;
+      }
+      &:hover {
+        stroke: blue;
+      }
+    }
+  } // buttons
 
-svg.buttons g.frequency {
-  font-size: 14px;
-  font-family: "LCD";
-  pointer-events: none;
-  transform: translate(50%, 65%);
-  fill: red;
-}
-
-svg.buttons circle {
-  /* stroke: black; */
-  /* stroke-width: 4; */
-  r: 20;
-  cy: 30;
-}
-
-svg.buttons rect {
-  height: 30;
-  width: 30;
-  rx: 5;
-  ry: 5;
-}
-
-svg.buttons circle.inactive,
-rect.inactive {
-  fill: grey;
-}
-
-svg.buttons rect:hover,
-circle:hover {
-  stroke: blue;
+  circle {
+    /* stroke: black; */
+    /* stroke-width: 4; */
+    r: 20;
+    cy: 30;
+  }
 }
 
 .box svg {
@@ -77,25 +79,24 @@ circle:hover {
   width: 250;
 }
 
-svg.course1 line {
-  stroke: yellow;
-  stroke-width: 4;
+svg.course1 {
+  line {
+    stroke: yellow;
+    stroke-width: 4;
+  }
+
+  marker polygon {
+    fill: yellow;
+  }
 }
 
-svg.course1 marker polygon {
-  fill: yellow;
-}
-
-svg.course2 polygon {
-  fill: none;
-  stroke: green;
-  stroke-width: 2;
-}
-
-svg.course2 rect {
-  fill: none;
-  stroke: green;
-  stroke-width: 2;
+svg.course2 {
+  polygon,
+  rect {
+    fill: none;
+    stroke: green;
+    stroke-width: 2;
+  }
 }
 
 div.heading_text text {

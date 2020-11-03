@@ -8,9 +8,8 @@ describe('HeadingIndicatorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeadingIndicatorComponent ]
-    })
-    .compileComponents();
+      declarations: [HeadingIndicatorComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +20,9 @@ describe('HeadingIndicatorComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should show beacon1 if exist', () => {
+    component.beacons = [{ course: 45, show: true, error: 0 }];
   });
 });

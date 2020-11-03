@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { catchError, map, pluck, share, startWith, tap } from 'rxjs/operators';
 import { DataService } from '../data.service';
-import { INSTRUMENTS } from '../gauge/gauge';
 import { Beacon } from '../instruments/instrument';
 import { flight_panel } from '../proto/simdata';
 
@@ -11,7 +10,7 @@ declare var $: any; // not required if installed @types/jquery
 @Component({
   selector: 'app-six-pack-instruments',
   templateUrl: './six-pack-instruments.component.html',
-  styleUrls: ['./six-pack-instruments.component.less'],
+  styleUrls: ['../instruments/instrument.less'],
 })
 export class SixPackInstrumentsComponent implements OnInit {
   // Data observable. Only pluck the "instruments" field.

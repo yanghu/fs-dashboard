@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DebugInfoComponent } from './debug-info/debug-info.component';
 import { SixPackInstrumentsComponent } from './six-pack-instruments/six-pack-instruments.component';
-import { GaugeComponent } from './gauge/gauge.component';
 import { AttitudeComponent } from './instruments/attitude.component';
 import { AltimeterComponent } from './instruments/altimeter.component';
 import { AirspeedIndicatorComponent } from './instruments/airspeed-indicator.component';
@@ -23,7 +22,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     DebugInfoComponent,
     SixPackInstrumentsComponent,
-    GaugeComponent,
     AttitudeComponent,
     AltimeterComponent,
     AirspeedIndicatorComponent,

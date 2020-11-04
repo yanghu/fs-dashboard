@@ -10,6 +10,4 @@ export class AppComponent {
   title = 'flight-dashboard';
 
   constructor(private dataService: DataService) {}
-
-  connect;
 }

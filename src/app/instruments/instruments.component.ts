@@ -1,18 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { NgModel } from '@angular/forms';
 import { catchError, map, pluck, share, startWith, tap } from 'rxjs/operators';
 import { DataService } from '../data.service';
-import { Beacon } from '../instruments/instrument';
+import { Beacon } from './instrument';
 import { flight_panel } from '../proto/simdata';
 
-declare var $: any; // not required if installed @types/jquery
-
 @Component({
-  selector: 'app-six-pack-instruments',
-  templateUrl: './six-pack-instruments.component.html',
-  styleUrls: ['../instruments/instrument.less'],
+  selector: 'app-instruments',
+  templateUrl: './instruments.component.html',
+  styleUrls: ['./instrument.less'],
 })
-export class SixPackInstrumentsComponent implements OnInit {
+export class InstrumentsComponent implements OnInit {
   // Data observable. Only pluck the "instruments" field.
   data$ = this.dataService.message$.pipe(
     // Add throttle. Limit to 20FPS seems to be a good balance.

@@ -1,45 +1,29 @@
 <p>six-pack-instruments works!</p>
 <div class="instruments box">
   <app-attitude
-    [bank]="((data$ | async) || { bankAngle: 0 }).bankAngle"
-    [pitch]="((data$ | async) || { pitchAngle: 0 }).pitchAngle"
+    [bank]="(data$ | async)?.bankAngle || 0"
+    [pitch]="(data$ | async)?.pitchAngle || 0"
     [showBox]="true"
   ></app-attitude>
   <app-altimeter
-    [altitude]="((data$ | async) || { indicatedAltitude: 0 }).indicatedAltitude"
-    [pressure]="
-      ((data$ | async) || { kohlsmanSettingHg: 29.92 }).kohlsmanSettingHg
-    "
+    [altitude]="(data$ | async)?.indicatedAltitude || 0"
+    [pressure]="(data$ | async)?.kohlsmanSettingHg || 29.92"
   ></app-altimeter>
   <app-airspeed-indicator
-    [speed]="((data$ | async) || { indicatedAirspeed: 0 }).indicatedAirspeed"
+    [speed]="(data$ | async)?.indicatedAirspeed || 0"
   ></app-airspeed-indicator>
   <br />
   <app-turn-indicator
-    [turnDegree]="
-      ((data$ | async) || { turnIndicatorRate: 0 }).turnIndicatorRate
-    "
-    [slip]="((data$ | async) || { turnCoordinatorBall: 0 }).turnCoordinatorBall"
+    [turnDegree]="(data$ | async)?.turnIndicatorRate || 0"
+    [slip]="(data$ | async)?.turnCoordinatorBall || 0"
   ></app-turn-indicator>
 
   <app-heading-indicator
-    [heading]="
-      ((data$ | async) || { headingIndicatorDeg: 0 }).headingIndicatorDeg
-    "
+    [heading]="(data$ | async)?.headingIndicatorDeg || 0"
     [beacons]="beacons || []"
     (toggleCourse)="toggleCourseVisibility($event)"
   ></app-heading-indicator>
 
-  <app-variometer
-    [speed]="((data$ | async) || { verticalSpeed: 0 }).verticalSpeed"
-  >
+  <app-variometer [speed]="(data$ | async)?.verticalSpeed || 0">
   </app-variometer>
-  <!-- 
-<span *ngFor="let gauge of instruments | slice: 0:3">
-  <app-gauge [data]="data$" [gauge]="gauge"></app-gauge>
-</span>
-<br />
-<span *ngFor="let gauge of instruments | slice: 3:6">
-  <app-gauge [data]="data$" [gauge]="gauge"></app-gauge>
-</span> -->
 </div>

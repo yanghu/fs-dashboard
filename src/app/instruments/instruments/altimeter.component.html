@@ -10,7 +10,7 @@
         src="img/altimeter_pressure_inhg.svg"
         alt=""
         class="box"
-        [style.transform]="pressureRotationInhg"
+        [fdRotate]="pressureRotationInhg"
       />
     </div>
     <!-- The "background" markings -->
@@ -18,21 +18,30 @@
       <img src="img/altimeter_background.svg" alt="" class="box" />
     </div>
     <!-- 10000ft hand -->
-    <div class="hand10000 move box">
+    <div class="hand10000 box">
       <img
         src="img/altimeter_hand_10000ft.svg"
-        class="box"
+        [fdRotate]="handAngle(10000)"
+        class="box move"
         alt=""
-        [style.transform]="handAngle(10000)"
       />
     </div>
 
-    <div class="hand1k move box" [style.transform]="handAngle(1000)">
-      <img src="img/altimeter_hand_1000ft.svg" class="box" alt="" />
+    <div class="hand1k box">
+      <img
+        src="img/altimeter_hand_1000ft.svg"
+        [fdRotate]="handAngle(1000)"
+        class="box move"
+      />
     </div>
 
-    <div class="hand100 move box" [style.transform]="handAngle(100)">
-      <img src="img/altimeter_hand_100ft.svg" class="box" alt="" />
+    <div class="hand100 box">
+      <img
+        src="img/altimeter_hand_100ft.svg"
+        [fdRotate]="handAngle(100)"
+        class="box move"
+        alt=""
+      />
     </div>
   </div>
   <!-- foreground -->

@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { rotationStr, Beacon } from './instrument';
+import { Beacon } from '../instrument';
 
 @Component({
   selector: 'app-heading-indicator',
   templateUrl: './heading-indicator.component.html',
-  styleUrls: ['./instrument.less'],
+  styleUrls: ['../instruments.less'],
 })
 export class HeadingIndicatorComponent implements OnInit {
   @Input() heading: number = 0;
@@ -19,15 +19,12 @@ export class HeadingIndicatorComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  get headingRotationStr() {
-    return rotationStr(-this.heading);
-  }
-
   get headingText() {
     return this.heading.toFixed(0) + '	°';
   }
-  beaconRotationStr(idx: number) {
-    return rotationStr(this.beacons?.[idx].course || 90);
+
+  beaconCourse(idx: number): number {
+    return this.beacons?.[idx].course || 90;
   }
 
   crsError(idx: number) {

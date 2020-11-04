@@ -2,7 +2,7 @@
   <div *ngIf="showBox" class="background box">
     <img src="img/indicator_background_dashboard.svg" class="box" alt="" />
   </div>
-  <div class="inner box" [style.transform]="'rotate(' + bank + 'deg)'">
+  <div class="inner box" [fdRotate]="bank">
     <div class="box">
       <img src="img/attitude_roll_1.svg" alt="" class="box" />
     </div>

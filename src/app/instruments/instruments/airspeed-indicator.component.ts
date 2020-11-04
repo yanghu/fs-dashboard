@@ -4,12 +4,11 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
-import { rotationStr } from './instrument';
 
 @Component({
   selector: 'app-airspeed-indicator',
   templateUrl: './airspeed-indicator.component.html',
-  styleUrls: ['./instrument.less'],
+  styleUrls: ['../instruments.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AirspeedIndicatorComponent implements OnInit {
@@ -30,11 +29,7 @@ export class AirspeedIndicatorComponent implements OnInit {
     return deg;
   }
 
-  get trueSpeedRotationStr() {
-    return rotationStr(30);
-  }
-
-  get handRotationStr() {
-    return rotationStr(this.handAngle());
+  get trueSpeedRotation(): number {
+    return 30;
   }
 }

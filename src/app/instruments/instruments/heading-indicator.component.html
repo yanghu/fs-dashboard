@@ -14,7 +14,7 @@
     </div> -->
 
     <!-- The yaw marks-->
-    <div class="heading_rot move box" [style.transform]="headingRotationStr">
+    <div class="heading_rot move box" [fdRotate]="-heading">
       <img src="img/heading_yaw.svg" class="box" />
 
       <!-- beacon2 hand -->
@@ -22,7 +22,7 @@
         <svg
           class="box move course2"
           *ngIf="showBeacon(1)"
-          [style.transform]="beaconRotationStr(1)"
+          [fdRotate]="beaconCourse(1)"
           viewBox="0 0 250 250"
         >
           <defs>
@@ -54,7 +54,7 @@
         <svg
           *ngIf="showBeacon(0)"
           class="box move course1"
-          [style.transform]="beaconRotationStr(0)"
+          [fdRotate]="beaconCourse(0)"
           viewBox="0 0 250 250"
         >
           <defs>

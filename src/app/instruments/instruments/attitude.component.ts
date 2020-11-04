@@ -4,25 +4,19 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
-import { interval } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-attitude',
   templateUrl: './attitude.component.html',
-  styleUrls: ['./instrument.less'],
+  styleUrls: ['../instruments.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AttitudeComponent implements OnInit {
-  @Input()
-  bank = 30;
-  @Input()
-  pitch = -10;
+  @Input() bank: number = 30;
+  @Input() pitch: number = -10;
 
-  @Input()
-  showBox = false;
+  @Input() showBox = false;
 
-  private increment = 0;
   constructor() {}
 
   ngOnInit(): void {}

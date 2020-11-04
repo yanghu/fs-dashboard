@@ -4,12 +4,11 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
-import { rotationStr } from './instrument';
 
 @Component({
   selector: 'app-turn-indicator',
   templateUrl: './turn-indicator.component.html',
-  styleUrls: ['./instrument.less'],
+  styleUrls: ['../instruments.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TurnIndicatorComponent implements OnInit {
@@ -20,9 +19,6 @@ export class TurnIndicatorComponent implements OnInit {
   @Input() showBox: boolean = false;
 
   ngOnInit(): void {}
-  get airplaneRotationStr() {
-    return rotationStr(this.turnDegree);
-  }
 
   static ballMoveCurve(x: number): number {
     return -0.08 * (x * x);

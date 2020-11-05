@@ -96,13 +96,11 @@ export class DataService {
       this.connect();
     }
     this.isConnected = true;
-    console.log(this.isConnected);
   }
 
   public stop(): void {
     this.close();
     this.isConnected = false;
-    console.log(this.isConnected);
   }
 
   public connect(): void {
@@ -116,7 +114,6 @@ export class DataService {
         tap({
           error: (error) => this.handleError(error),
         }),
-        // tap(x => console.log("emit a new connection.")),
         catchError((_) => EMPTY)
       );
       this.messageSubject$.next(messages);

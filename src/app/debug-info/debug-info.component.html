@@ -1,5 +1,11 @@
-<h2>Debug Info</h2>
-<button (click)="reconnect()">Connect</button>
-<pre>
-    <code>{{simData | json}}</code>
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title> Debug info </mat-panel-title>
+    <mat-panel-description>
+      Flight data read from WS server.
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <pre>
+    <code *ngIf="liveData$ | async as data">{{data | json}}</code>
 </pre>
+</mat-expansion-panel>

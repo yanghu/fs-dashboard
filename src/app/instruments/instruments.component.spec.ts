@@ -1,20 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SixPackInstrumentsComponent } from './six-pack-instruments.component';
+import { InstrumentsComponent } from './instruments.component';
 
-describe('SixPackInstrumentsComponent', () => {
-  let component: SixPackInstrumentsComponent;
-  let fixture: ComponentFixture<SixPackInstrumentsComponent>;
+describe('InstrumentsComponent', () => {
+  let component: InstrumentsComponent;
+  let fixture: ComponentFixture<InstrumentsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SixPackInstrumentsComponent ]
-    })
-    .compileComponents();
+      declarations: [InstrumentsComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SixPackInstrumentsComponent);
+    fixture = TestBed.createComponent(InstrumentsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

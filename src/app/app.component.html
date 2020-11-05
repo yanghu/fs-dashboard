@@ -6,10 +6,9 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-{{ title }}
-<div class="content">
-  <span> flight-dashboard app is running! </span>
-</div>
+<h1>
+  {{ title }}
+</h1>
 <mat-sidenav-container>
   <mat-sidenav mode="side" [opened]="true">
     <mat-nav-list>
@@ -26,6 +25,6 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <app-instruments></app-instruments>
-    <app-debug-info></app-debug-info>
   </mat-sidenav-content>
 </mat-sidenav-container>
+<app-debug-info></app-debug-info>

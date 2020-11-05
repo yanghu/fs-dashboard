@@ -11,7 +11,7 @@ import { flight_panel } from '../proto/simdata';
 })
 export class InstrumentsComponent implements OnInit {
   // Data observable. Only pluck the "instruments" field.
-  data$ = this.dataService.message$.pipe(
+  readonly data$ = this.dataService.message$.pipe(
     // Add throttle. Limit to 20FPS seems to be a good balance.
     // When fps is too high, on older iPad frames would drop.
     // throttle((val) => interval(40)),

@@ -10,13 +10,10 @@ import {
   catchError,
   tap,
   switchAll,
-  multicast,
-  refCount,
   publish,
   share,
   map,
   throttle,
-  startWith,
 } from 'rxjs/operators';
 import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
 import { environment } from 'src/environments/environment';
@@ -32,16 +29,16 @@ export class DataService {
 
   private socket$: WebSocketSubject<Uint8Array>;
   private messageSubject$ = new Subject<Observable<Uint8Array>>();
-  private isConnected: boolean = false;
+  isConnected: boolean = false;
 
   // Everytime we call "connect", messageSubject emits a new WebSocketSubject
   // observable.
   // The public `message` use `switchAll` pipe so only the most recent
   // connection is used.
 
-  public message$: ConnectableObservable<model.flight_panel.SimData>;
+  readonly message$: ConnectableObservable<model.flight_panel.SimData>;
   // dummy observable.
-  private dummyMessage$ = interval(30).pipe(
+  private readonly dummyMessage$ = interval(30).pipe(
     map((x) => {
       let val = Math.sin(x / 20);
       let data = model.flight_panel.SimData.create({
@@ -80,28 +77,32 @@ export class DataService {
       ) as ConnectableObservable<model.flight_panel.SimData>;
     } else {
       this.message$ = this.messageSubject$.pipe(
+        tap((x) => console.log(x)),
         switchAll(),
         catchError((e) => {
           throw e;
         }),
-        // throttle((x) => interval(50)),
         map((data) => model.flight_panel.SimData.decode(data)),
-        // Need to multicast back to a subject so different components can subscribe
-        // to the same subject.
         publish()
       ) as ConnectableObservable<model.flight_panel.SimData>;
     }
   }
 
   public start(): void {
+    // Activate the obsrevable BEFORE connecting to WS server.
+    // Otherwise, the WS connection is missed by "this.messages$".
+    this.message$.connect();
     if (!environment.useFakeBackend) {
       this.connect();
     }
-    this.message$.connect();
+    this.isConnected = true;
+    console.log(this.isConnected);
   }
 
   public stop(): void {
     this.close();
+    this.isConnected = false;
+    console.log(this.isConnected);
   }
 
   public connect(): void {
@@ -119,10 +120,8 @@ export class DataService {
         catchError((_) => EMPTY)
       );
       this.messageSubject$.next(messages);
-      console.log(this.socket$);
     } else {
       console.log('Connection already exist');
-      console.log(this.socket$);
     }
   }
 

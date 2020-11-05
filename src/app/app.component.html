@@ -14,7 +14,10 @@
   <mat-sidenav mode="side" [opened]="true">
     <mat-nav-list>
       <mat-list-item>
-        <mat-slide-toggle>
+        <mat-slide-toggle
+          [checked]="dataServiceConnected()"
+          (change)="onToggleChange($event)"
+        >
           <mat-icon>offline_bolt</mat-icon>
         </mat-slide-toggle>
         <!-- <span matLine>Connect</span> -->

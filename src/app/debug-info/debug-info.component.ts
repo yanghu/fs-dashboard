@@ -5,7 +5,7 @@ import { DataService } from '../data.service';
 @Component({
   selector: 'app-debug-info',
   templateUrl: './debug-info.component.html',
-  styleUrls: ['./debug-info.component.less'],
+  styleUrls: ['./debug-info.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DebugInfoComponent implements OnInit {

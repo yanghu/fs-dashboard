@@ -8,7 +8,7 @@ import {
 @Component({
   selector: 'app-airspeed-indicator',
   templateUrl: './airspeed-indicator.component.html',
-  styleUrls: ['../instruments.less'],
+  styleUrls: ['../instruments.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AirspeedIndicatorComponent implements OnInit {

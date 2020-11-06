@@ -8,7 +8,7 @@ import {
 @Component({
   selector: 'app-attitude',
   templateUrl: './attitude.component.html',
-  styleUrls: ['../instruments.less'],
+  styleUrls: ['../instruments.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AttitudeComponent implements OnInit {

@@ -8,7 +8,7 @@ import {
 @Component({
   selector: 'app-turn-indicator',
   templateUrl: './turn-indicator.component.html',
-  styleUrls: ['../instruments.less'],
+  styleUrls: ['../instruments.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TurnIndicatorComponent implements OnInit {

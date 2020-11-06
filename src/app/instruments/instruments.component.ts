@@ -7,7 +7,7 @@ import { flight_panel } from '../proto/simdata';
 @Component({
   selector: 'app-instruments',
   templateUrl: './instruments.component.html',
-  styleUrls: ['./instruments.less'],
+  styleUrls: ['./instruments.scss'],
 })
 export class InstrumentsComponent implements OnInit {
   // Data observable. Only pluck the "instruments" field.

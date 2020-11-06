@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-variometer',
   templateUrl: './variometer.component.html',
-  styleUrls: ['../instruments.less'],
+  styleUrls: ['../instruments.scss'],
 })
 export class VariometerComponent implements OnInit {
   @Input() speed = 10;

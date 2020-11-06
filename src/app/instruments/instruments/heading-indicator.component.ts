@@ -4,7 +4,7 @@ import { Beacon } from '../instrument';
 @Component({
   selector: 'app-heading-indicator',
   templateUrl: './heading-indicator.component.html',
-  styleUrls: ['../instruments.less'],
+  styleUrls: ['../instruments.scss'],
 })
 export class HeadingIndicatorComponent implements OnInit {
   @Input() heading: number = 0;

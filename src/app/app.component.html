@@ -13,15 +13,18 @@
   <mat-sidenav mode="side" [opened]="true">
     <mat-nav-list>
       <mat-list-item>
-        <mat-slide-toggle
-          [checked]="dataServiceConnected()"
-          (change)="onToggleChange($event)"
+        <button
+          mat-mini-fab
+          [class.connected]="dataServiceConnected()"
+          [disableRipple]="true"
+          color="basic"
+          (click)="changeState()"
+          [title]="tooltip"
         >
-          <mat-icon>offline_bolt</mat-icon>
-          <mat-icon>cloud_done</mat-icon>
-          <mat-icon>cloud_off</mat-icon>
-        </mat-slide-toggle>
-        <!-- <span matLine>Connect</span> -->
+          <mat-icon>
+            {{ dataServiceConnected() ? "cloud_done" : "cloud_off" }}
+          </mat-icon>
+        </button>
       </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>

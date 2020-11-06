@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  useFakeBackend: true,
+  useFakeBackend: false,
   wsEndpoint: 'ws://192.168.1.130:8080',
 };
 

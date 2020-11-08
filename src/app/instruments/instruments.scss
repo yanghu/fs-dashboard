@@ -42,10 +42,6 @@ svg {
       font-family: "Digital Numbers", sans-serif;
       font-style: normal;
       text-shadow: rgb(255, 255, 255) 0px 0px 1px !important;
-      // font-family: "Orbitron", sans-serif;
-      // font-family: "Audiowide", cursive;
-      // font-family: "Atomic Age", cursive;
-      // font-family: "Rationale", sans-serif;
 
       pointer-events: none;
       transform: translate(50%, 70%);
@@ -67,8 +63,6 @@ svg {
   } // buttons
 
   circle {
-    /* stroke: black; */
-    /* stroke-width: 4; */
     r: 20;
     cy: 30;
   }

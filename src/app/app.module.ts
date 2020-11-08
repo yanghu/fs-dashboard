@@ -6,6 +6,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,7 @@ import { InstrumentsModule } from './instruments/instruments.module';
     MatSlideToggleModule,
     MatListModule,
     MatIconModule,
+    MatToolbarModule,
     InstrumentsModule,
   ],
   providers: [],

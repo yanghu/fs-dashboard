@@ -1,32 +1,15 @@
-@font-face {
-  font-family: "LCD";
-  src: url("../assets/font/lcd-font.woff2") format("woff2"),
-    /* chrome、firefox */ url("../assets/font/lcd-font.woff") format("woff"),
-    /* chrome、firefox */ url("../assets/font/lcd-font.ttf") format("truetype"),
-    /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-      url("../assets/font/lcd-font.svg#LCD") format("svg"); /* iOS 4.1- */
+@use 'abstract/colors';
+
+button.connect {
+  &.disconnected {
+    background-color: grey;
+  }
+
+  &.connected {
+    background-color: colors.$connected;
+  }
 }
 
-@font-face {
-  font-family: "Digital Numbers";
-  src: 
-    /* chrome、firefox */ url("../assets/font/digital-numbers.woff")
-      format("woff"),
-    /* chrome、firefox */ url("../assets/font/digital-numbers.ttf")
-      format("truetype"),
-    /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-      url("../assets/font/digital-numbers.svg#DigitalNumbers-Regular")
-      format("svg"); /* iOS 4.1- */
-}
-
-// @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Atomic+Age&display=swap");
-
-button.connected {
-  background-color: rgb(28, 182, 61);
-}
-
-button {
-  background-color: grey;
+.example-spacer {
+  flex: 1 1 auto;
 }

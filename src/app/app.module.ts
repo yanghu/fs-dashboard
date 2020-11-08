@@ -13,10 +13,16 @@ import { AppComponent } from './app.component';
 import { DebugInfoComponent } from './debug-info/debug-info.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InstrumentsModule } from './instruments/instruments.module';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { ContentComponent } from './layout/content/content.component';
 
 @NgModule({
-  declarations: [AppComponent, DebugInfoComponent, HeaderComponent],
+  declarations: [
+    AppComponent,
+    DebugInfoComponent,
+    HeaderComponent,
+    ContentComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

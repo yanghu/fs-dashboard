@@ -9,9 +9,10 @@ import { InstrumentsComponent } from './instruments.component';
 import { TurnIndicatorComponent } from './instruments/turn-indicator.component';
 import { VariometerComponent } from './instruments/variometer.component';
 import { RotateDirective } from './rotate.directive';
+import { InstrumentsRoutes } from './instruments-routing.module';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, InstrumentsRoutes],
   declarations: [
     InstrumentsComponent,
     AirspeedIndicatorComponent,

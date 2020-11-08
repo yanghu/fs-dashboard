@@ -7,21 +7,4 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<app-header
-  [title]="title"
-  [isConnected]="dataServiceConnected()"
-  (toggleMenu)="sidenav.toggle()"
-  (toggleConnection)="changeState()"
-></app-header>
-
-<mat-sidenav-container>
-  <mat-sidenav #sidenav mode="side" [opened]="true">
-    <mat-nav-list>
-      <mat-list-item>hello</mat-list-item>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <app-instruments></app-instruments>
-  </mat-sidenav-content>
-</mat-sidenav-container>
-<app-debug-info></app-debug-info>
+<router-outlet></router-outlet>

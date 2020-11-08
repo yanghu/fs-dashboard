@@ -1,0 +1,19 @@
+<app-header
+  [title]="title"
+  [isConnected]="dataServiceConnected()"
+  (toggleMenu)="sidenav.toggle()"
+  (toggleConnection)="changeState()"
+></app-header>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" [opened]="true">
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['dashboard/instruments']">Instruments</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+    <!-- <app-instruments></app-instruments> -->
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<app-debug-info></app-debug-info>

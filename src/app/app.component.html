@@ -6,50 +6,18 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<mat-toolbar>
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with menu icon"
-    (click)="sidenav.toggle()"
-  >
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>{{ title }}</span>
-  <span class="example-spacer"></span>
-  <button
-    mat-icon-button
-    class="example-icon favorite-icon"
-    aria-label="Example icon-button with heart icon"
-  >
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with share icon"
-  >
-    <mat-icon>share</mat-icon>
-  </button>
-</mat-toolbar>
+
+<app-header
+  [title]="title"
+  [isConnected]="dataServiceConnected()"
+  (toggleMenu)="sidenav.toggle()"
+  (toggleConnection)="changeState()"
+></app-header>
+
 <mat-sidenav-container>
   <mat-sidenav #sidenav mode="side" [opened]="true">
     <mat-nav-list>
-      <mat-list-item>
-        <button
-          mat-mini-fab
-          class="connect"
-          [ngClass]="dataServiceConnected() ? 'connected' : 'disconnected'"
-          [disableRipple]="true"
-          color="basic"
-          (click)="changeState()"
-          [title]="tooltip"
-        >
-          <mat-icon>
-            {{ dataServiceConnected() ? "cloud_done" : "cloud_off" }}
-          </mat-icon>
-        </button>
-      </mat-list-item>
+      <mat-list-item>hello</mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

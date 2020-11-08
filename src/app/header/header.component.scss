@@ -9,3 +9,7 @@ button.connect {
     background-color: colors.$connected;
   }
 }
+
+.left-right-spacer {
+  flex: 1 1 auto;
+}

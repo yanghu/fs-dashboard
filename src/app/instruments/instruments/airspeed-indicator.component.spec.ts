@@ -8,9 +8,8 @@ describe('AirspeedIndicatorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AirspeedIndicatorComponent ]
-    })
-    .compileComponents();
+      declarations: [AirspeedIndicatorComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

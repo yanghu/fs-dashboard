@@ -22,6 +22,7 @@ export class AppComponent {
   get tooltip() {
     return this.dataServiceConnected() ? 'Disconnect' : 'Connect';
   }
+
   changeState() {
     if (this.dataServiceConnected()) {
       console.log('stop');

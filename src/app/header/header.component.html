@@ -1,0 +1,21 @@
+<mat-toolbar>
+  <button mat-icon-button class="menu-toggle" (click)="toggleMenu.emit()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>{{ title }}</span>
+  <span class="left-right-spacer"></span>
+
+  <button
+    mat-mini-fab
+    class="connect"
+    [ngClass]="isConnected ? 'connected' : 'disconnected'"
+    [disableRipple]="true"
+    color="basic"
+    (click)="toggleConnection.emit()"
+    [title]="tooltip"
+  >
+    <mat-icon>
+      {{ isConnected ? "cloud_done" : "cloud_off" }}
+    </mat-icon>
+  </button>
+</mat-toolbar>

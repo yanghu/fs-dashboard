@@ -24,5 +24,7 @@ describe('HeadingIndicatorComponent', () => {
 
   it('should show beacon1 if exist', () => {
     component.beacons = [{ course: 45, show: true, error: 0 }];
+    fixture.detectChanges();
+    expect(fixture);
   });
 });

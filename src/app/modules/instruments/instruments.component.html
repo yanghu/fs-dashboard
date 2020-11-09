@@ -1,8 +1,11 @@
 <div class="instruments" [style.height.px]="instrumentSize * 2">
+  <app-airspeed-indicator
+    [size]="instrumentSize"
+    [speed]="(data$ | async)?.indicatedAirspeed || 0"
+  ></app-airspeed-indicator>
   <app-attitude
     [bank]="(data$ | async)?.bankAngle || 0"
     [pitch]="(data$ | async)?.pitchAngle || 0"
-    [showBox]="true"
     [size]="instrumentSize"
   ></app-attitude>
   <app-altimeter
@@ -10,10 +13,7 @@
     [altitude]="(data$ | async)?.indicatedAltitude || 0"
     [pressure]="(data$ | async)?.kohlsmanSettingHg || 29.92"
   ></app-altimeter>
-  <app-airspeed-indicator
-    [size]="instrumentSize"
-    [speed]="(data$ | async)?.indicatedAirspeed || 0"
-  ></app-airspeed-indicator>
+
   <br />
   <app-turn-indicator
     [size]="instrumentSize"

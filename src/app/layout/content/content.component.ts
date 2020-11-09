@@ -49,6 +49,9 @@ export class ContentComponent implements OnInit {
     }
   }
 
+  // TODO: adjust instruments height to document.body.clientHeight
+  // So instruments can take full screen.
+  // Also add transition animation for the div.
   toggleFullScreen() {
     if (this.isFullscreen) {
       document.exitFullscreen();

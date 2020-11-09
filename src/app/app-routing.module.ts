@@ -20,6 +20,13 @@ const routes: Routes = [
             (m) => m.InstrumentsModule
           ),
       },
+      {
+        path: 'settings',
+        loadChildren: () =>
+          import('@modules/settings/settings.module').then(
+            (m) => m.SettingsModule
+          ),
+      },
     ],
   },
 ];

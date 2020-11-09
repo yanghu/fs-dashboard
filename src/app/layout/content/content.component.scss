@@ -1,19 +1,23 @@
 div.container {
   background-color: black;
   // height: 100%;
-}
+  min-height: 100%;
 
-mat-sidenav-content {
   display: flex;
   flex-direction: column;
 
-  .content {
+  .sidenav-container {
     flex: 1 0 auto;
+    height: 100%;
   }
 
   .footer {
     flex-shrink: 0;
   }
+}
+
+mat-sidenav-content {
+  min-height: 60vh;
 }
 
 .float {

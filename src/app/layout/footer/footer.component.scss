@@ -1,0 +1,19 @@
+.footer {
+  background-color: #424242;
+}
+
+.copyright {
+  text-align: center;
+}
+
+span.text-muted {
+  font-size: small;
+  color: hsl(0, 0%, 75%);
+  a {
+    color: hsl(0, 100%, 100%);
+    text-decoration: none;
+    &:hover {
+      color: hsl(200, 50%, 50%);
+    }
+  }
+}

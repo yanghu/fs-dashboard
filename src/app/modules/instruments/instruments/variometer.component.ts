@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class VariometerComponent implements OnInit {
   @Input() speed = 10;
   @Input() showBox = false;
+  @Input() size = 250;
 
   constructor() {}
 

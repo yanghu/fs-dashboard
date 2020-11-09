@@ -11,15 +11,14 @@ import {
   tap,
   switchAll,
   publish,
-  share,
   map,
   throttle,
 } from 'rxjs/operators';
 import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
-import { environment } from 'src/environments/environment';
+import { environment } from '@env/environment';
 export const WS_ENDPOINT = environment.wsEndpoint;
 
-import * as model from './proto/simdata';
+import * as model from '@data/schema/proto/simdata';
 
 @Injectable({
   providedIn: 'root',

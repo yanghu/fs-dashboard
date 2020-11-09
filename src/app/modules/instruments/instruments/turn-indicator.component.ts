@@ -17,6 +17,7 @@ export class TurnIndicatorComponent implements OnInit {
   // Slip is
   @Input() slip: number = 1;
   @Input() showBox: boolean = false;
+  @Input() size = 250;
 
   ngOnInit(): void {}
 

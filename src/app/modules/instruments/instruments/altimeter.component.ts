@@ -15,7 +15,11 @@ export class AltimeterComponent implements OnInit {
   @Input() showBox = false;
   @Input() pressure = 29.92;
   @Input() altitude = 7777;
+  @Input() size = 250;
 
+  get sizeStyle() {
+    return;
+  }
   constructor() {}
 
   ngOnInit(): void {}

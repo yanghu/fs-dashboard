@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { catchError, tap } from 'rxjs/operators';
-import { DataService } from '../data.service';
+import { DataService } from '@data/data.service';
 
 @Component({
   selector: 'app-debug-info',

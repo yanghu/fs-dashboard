@@ -14,6 +14,7 @@ import {
 export class AirspeedIndicatorComponent implements OnInit {
   @Input() speed = 200;
   @Input() showBox = false;
+  @Input() size = '250px';
 
   constructor() {}
 

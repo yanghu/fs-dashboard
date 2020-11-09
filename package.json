@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "pbts": "pbjs -t static-module src/proto/sim_data.proto -o src/app/proto/simdata.js && pbts --no-comments src/app/proto/simdata.js -o src/app/proto/simdata.d.ts"
+    "pbts": "pbjs -t static-module src/proto/sim_data.proto -o src/app/data/schema/proto/simdata.js && pbts --no-comments src/app/data/schema/proto/simdata.js -o src/app/data/schema/proto/simdata.d.ts"
   },
   "private": true,
   "dependencies": {

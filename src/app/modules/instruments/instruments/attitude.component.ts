@@ -14,8 +14,8 @@ import {
 export class AttitudeComponent implements OnInit {
   @Input() bank: number = 30;
   @Input() pitch: number = -10;
-
   @Input() showBox = false;
+  @Input() size = 250;
 
   constructor() {}
 

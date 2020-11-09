@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { SharedModule } from '@shared/shared.module';
 
 import { AirspeedIndicatorComponent } from './instruments/airspeed-indicator.component';
 import { AltimeterComponent } from './instruments/altimeter.component';
@@ -8,11 +8,10 @@ import { HeadingIndicatorComponent } from './instruments/heading-indicator.compo
 import { InstrumentsComponent } from './instruments.component';
 import { TurnIndicatorComponent } from './instruments/turn-indicator.component';
 import { VariometerComponent } from './instruments/variometer.component';
-import { RotateDirective } from './rotate.directive';
 import { InstrumentsRoutes } from './instruments-routing.module';
 
 @NgModule({
-  imports: [CommonModule, InstrumentsRoutes],
+  imports: [SharedModule, InstrumentsRoutes],
   declarations: [
     InstrumentsComponent,
     AirspeedIndicatorComponent,
@@ -21,7 +20,6 @@ import { InstrumentsRoutes } from './instruments-routing.module';
     HeadingIndicatorComponent,
     TurnIndicatorComponent,
     VariometerComponent,
-    RotateDirective,
   ],
   exports: [InstrumentsComponent],
 })

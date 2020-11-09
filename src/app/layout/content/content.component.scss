@@ -1,0 +1,23 @@
+div.container {
+  background-color: black;
+  // height: 100%;
+}
+
+mat-sidenav-content {
+  display: flex;
+  flex-direction: column;
+
+  .content {
+    flex: 1 0 auto;
+  }
+
+  .footer {
+    flex-shrink: 0;
+  }
+}
+
+.float {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}

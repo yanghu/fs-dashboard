@@ -12,7 +12,9 @@
     [disableRipple]="true"
     color="basic"
     (click)="toggleConnection.emit()"
-    [title]="tooltip"
+    [matTooltip]="tooltip"
+    matTooltipPosition="before"
+    matTooltipClass="button-tooltip"
   >
     <mat-icon>
       {{ isConnected ? "cloud_done" : "cloud_off" }}

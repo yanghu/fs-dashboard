@@ -1,5 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/data.service';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { DataService } from '@data/data.service';
 
 @Component({
   selector: 'app-content',
@@ -8,7 +14,11 @@ import { DataService } from 'src/app/data.service';
 })
 export class ContentComponent implements OnInit {
   title = 'Flight Dashboard';
+  isFullscreen: boolean = false;
+
   constructor(private dataService: DataService) {}
+
+  @ViewChild('content') divRef: ElementRef;
 
   ngOnInit(): void {}
 
@@ -21,6 +31,29 @@ export class ContentComponent implements OnInit {
       this.dataService.stop();
     } else {
       this.dataService.start();
+    }
+  }
+
+  @HostListener('document:fullscreenchange', ['$event'])
+  @HostListener('document:webkitfullscreenchange', ['$event'])
+  @HostListener('document:mozfullscreenchange', ['$event'])
+  fullscreenmodes(event) {
+    this.checkScreenMode();
+  }
+
+  checkScreenMode() {
+    if (document.fullscreenElement) {
+      this.isFullscreen = true;
+    } else {
+      this.isFullscreen = false;
+    }
+  }
+
+  toggleFullScreen() {
+    if (this.isFullscreen) {
+      document.exitFullscreen();
+    } else {
+      this.divRef.nativeElement.requestFullscreen();
     }
   }
 }

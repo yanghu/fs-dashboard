@@ -1,4 +1,5 @@
 @use 'abstract/colors';
+@use 'components/buttons';
 
 button.connect {
   &.disconnected {

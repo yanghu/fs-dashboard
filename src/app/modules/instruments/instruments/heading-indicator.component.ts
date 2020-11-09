@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Beacon } from '../instrument';
+import { Beacon } from '@data/schema/beacon';
 
 @Component({
   selector: 'app-heading-indicator',
@@ -10,6 +10,7 @@ export class HeadingIndicatorComponent implements OnInit {
   @Input() heading: number = 0;
   @Input() beacons: Beacon[];
   @Input() showBox: false;
+  @Input() size = 250;
 
   @Output() toggleCourse = new EventEmitter<number>();
 

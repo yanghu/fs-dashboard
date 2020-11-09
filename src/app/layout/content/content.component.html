@@ -1,19 +1,27 @@
-<app-header
-  [title]="title"
-  [isConnected]="dataServiceConnected()"
-  (toggleMenu)="sidenav.toggle()"
-  (toggleConnection)="changeState()"
-></app-header>
+<div class="container">
+  <app-header
+    [title]="title"
+    [isConnected]="dataServiceConnected()"
+    (toggleMenu)="sidenav.toggle()"
+    (toggleConnection)="changeState()"
+  ></app-header>
 
-<mat-sidenav-container>
-  <mat-sidenav #sidenav mode="side" [opened]="true">
-    <mat-nav-list>
-      <a mat-list-item [routerLink]="['dashboard/instruments']">Instruments</a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
-    <!-- <app-instruments></app-instruments> -->
-  </mat-sidenav-content>
-</mat-sidenav-container>
-<app-debug-info></app-debug-info>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" [opened]="true">
+      <app-navbar></app-navbar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div #content class="content">
+        <router-outlet></router-outlet>
+        <button mat-mini-fab class="float" (click)="toggleFullScreen()">
+          <mat-icon *ngIf="!isFullscreen">fullscreen</mat-icon>
+          <mat-icon *ngIf="isFullscreen">fullscreen_exit</mat-icon>
+        </button>
+        <!-- <div class="screen"></div> -->
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <div class="footer">
+    <app-footer></app-footer>
+  </div>
+</div>

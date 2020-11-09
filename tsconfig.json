@@ -3,7 +3,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "allowJs": true,
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
@@ -13,9 +13,14 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "es2020",
-    "lib": [
-      "es2018",
-      "dom"
-    ]
+    "lib": ["es2018", "dom"],
+    "paths": {
+      "@data/*": ["app/data/*"],
+      "@modules/*": ["app/modules/*"],
+      "@proto/*": ["app/proto/*"],
+      "@env/*": ["environments/*"],
+      "@layout/*": ["app/layout/*"],
+      "@shared/*": ["app/shared/*"]
+    }
   }
 }

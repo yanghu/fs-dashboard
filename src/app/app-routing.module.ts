@@ -13,9 +13,10 @@ const routes: Routes = [
     component: ContentComponent,
     children: [
       {
+        // TODO: move dashboard routing into dashboard module.
         path: 'dashboard/instruments',
         loadChildren: () =>
-          import('./instruments/instruments.module').then(
+          import('@modules/instruments/instruments.module').then(
             (m) => m.InstrumentsModule
           ),
       },

@@ -8,10 +8,12 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [],
   imports: [
+    MatButtonToggleModule,
     MatButtonModule,
     MatExpansionModule,
     MatSidenavModule,
@@ -22,6 +24,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatTooltipModule,
   ],
   exports: [
+    MatButtonToggleModule,
     MatButtonModule,
     MatExpansionModule,
     MatSidenavModule,

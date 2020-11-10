@@ -5,6 +5,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { DataService } from '@data/data.service';
 
 @Component({
@@ -15,6 +16,7 @@ import { DataService } from '@data/data.service';
 export class ContentComponent implements OnInit {
   title = 'Flight Dashboard';
   isFullscreen: boolean = false;
+  displayDebug: boolean = false;
 
   constructor(private dataService: DataService) {}
 
@@ -57,6 +59,14 @@ export class ContentComponent implements OnInit {
       document.exitFullscreen();
     } else {
       this.divRef.nativeElement.requestFullscreen();
+    }
+  }
+
+  toggleDebug(event: MatSlideToggleChange) {
+    if (event.checked) {
+      this.displayDebug = true;
+    } else {
+      this.displayDebug = false;
     }
   }
 }

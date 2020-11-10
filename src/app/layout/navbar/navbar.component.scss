@@ -1,0 +1,20 @@
+@use 'layout/align';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+mat-nav-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 100%;
+}
+
+.push-bottom {
+  margin-top: auto;
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: center;
+}

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="page">
   <app-header
     [title]="title"
     [isConnected]="dataServiceConnected()"
@@ -8,7 +8,7 @@
 
   <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #sidenav mode="side" [opened]="true">
-      <app-navbar></app-navbar>
+      <app-navbar (toggleDebug)="toggleDebug($event)"></app-navbar>
     </mat-sidenav>
     <mat-sidenav-content>
       <div #content class="content">
@@ -21,7 +21,8 @@
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
+  <hr />
   <div class="footer">
-    <app-footer></app-footer>
+    <app-footer [displayDebug]="displayDebug"></app-footer>
   </div>
 </div>

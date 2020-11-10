@@ -1,0 +1,14 @@
+%end-aligned {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.right-aligned {
+  @extend %end-aligned;
+  width: 100%;
+}
+
+.bottom-aligned {
+  @extend %end-aligned;
+  flex-direction: column;
+}

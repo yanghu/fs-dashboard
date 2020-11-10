@@ -1,6 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  HostListener,
+  Input,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { catchError, map, pluck, share, startWith, tap } from 'rxjs/operators';
-import { RouterOutlet } from '@angular/router';
 import { DataService } from '@data/data.service';
 import { Beacon } from '@data/schema/beacon';
 
@@ -10,7 +17,9 @@ import { Beacon } from '@data/schema/beacon';
   styleUrls: ['./instruments.scss'],
 })
 export class InstrumentsComponent implements OnInit {
-  @Input() instrumentSize = 200;
+  @ViewChild('instruments') container;
+
+  maxWidth: number = 3000;
   // Data observable. Only pluck the "instruments" field.
   readonly data$ = this.dataService.message$.pipe(
     // Add throttle. Limit to 20FPS seems to be a good balance.
@@ -32,7 +41,10 @@ export class InstrumentsComponent implements OnInit {
     { course: 100, show: true, error: 0 },
   ];
 
-  constructor(private dataService: DataService, private outlet: RouterOutlet) {}
+  constructor(
+    private dataService: DataService,
+    private ref: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     this.dataService.message$.subscribe((data) => {
@@ -41,13 +53,21 @@ export class InstrumentsComponent implements OnInit {
       this.beacons[1].course = data.navData.hsi_2.course;
       this.beacons[1].error = data.avionics.cdi_2.radialError;
     });
-    this.instrumentSize =
-      this.outlet &&
-      this.outlet.activatedRouteData &&
-      this.outlet.activatedRouteData.size;
+  }
+
+  // If this is executed in ngAfterViewInit, would see
+  // ExpressionChangedAfterItHasBeenCheckedError
+  ngAfterViewInit(): void {
+    this.maxWidth = this.container.nativeElement.offsetHeight * 1.5;
+    this.ref.detectChanges();
   }
 
   toggleCourseVisibility(idx: number) {
     this.beacons[idx].show = !this.beacons[idx].show;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.maxWidth = this.container.nativeElement.offsetHeight * 1.5;
   }
 }

@@ -1,36 +1,27 @@
-<div class="instruments" [style.height.px]="instrumentSize * 2">
+<div #instruments class="instruments grid" [style.max-width.px]="maxWidth">
   <app-airspeed-indicator
-    [size]="instrumentSize"
     [speed]="(data$ | async)?.indicatedAirspeed || 0"
   ></app-airspeed-indicator>
   <app-attitude
     [bank]="(data$ | async)?.bankAngle || 0"
     [pitch]="(data$ | async)?.pitchAngle || 0"
-    [size]="instrumentSize"
   ></app-attitude>
   <app-altimeter
-    [size]="instrumentSize"
     [altitude]="(data$ | async)?.indicatedAltitude || 0"
     [pressure]="(data$ | async)?.kohlsmanSettingHg || 29.92"
   ></app-altimeter>
 
-  <br />
   <app-turn-indicator
-    [size]="instrumentSize"
     [turnDegree]="(data$ | async)?.turnIndicatorRate || 0"
     [slip]="(data$ | async)?.turnCoordinatorBall || 0"
   ></app-turn-indicator>
 
   <app-heading-indicator
-    [size]="instrumentSize"
     [heading]="(data$ | async)?.headingIndicatorDeg || 0"
     [beacons]="beacons || []"
     (toggleCourse)="toggleCourseVisibility($event)"
   ></app-heading-indicator>
 
-  <app-variometer
-    [size]="instrumentSize"
-    [speed]="(data$ | async)?.verticalSpeed || 0"
-  >
+  <app-variometer [speed]="(data$ | async)?.verticalSpeed || 0">
   </app-variometer>
 </div>

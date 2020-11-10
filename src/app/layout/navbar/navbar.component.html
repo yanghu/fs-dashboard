@@ -2,4 +2,9 @@
   <a mat-list-item *ngFor="let item of navItems" [routerLink]="[item.link]">{{
     item.title
   }}</a>
+  <div class="push-bottom">
+    <mat-slide-toggle (change)="toggleDebug.emit($event)"
+      >Debug</mat-slide-toggle
+    >
+  </div>
 </mat-nav-list>

@@ -3,21 +3,23 @@
     <mat-icon>menu</mat-icon>
   </button>
   <span>{{ title }}</span>
-  <span class="left-right-spacer"></span>
 
-  <button
-    mat-mini-fab
-    class="connect"
-    [ngClass]="isConnected ? 'connected' : 'disconnected'"
-    [disableRipple]="true"
-    color="basic"
-    (click)="toggleConnection.emit()"
-    [matTooltip]="tooltip"
-    matTooltipPosition="before"
-    matTooltipClass="button-tooltip"
-  >
-    <mat-icon>
-      {{ isConnected ? "cloud_done" : "cloud_off" }}
-    </mat-icon>
-  </button>
+  <!-- Right-aligned box with buttons. -->
+  <div class="right-aligned">
+    <button
+      mat-mini-fab
+      class="connect"
+      [ngClass]="isConnected ? 'connected' : 'disconnected'"
+      [disableRipple]="true"
+      color="basic"
+      (click)="toggleConnection.emit()"
+      [matTooltip]="tooltip"
+      matTooltipPosition="before"
+      matTooltipClass="button-tooltip"
+    >
+      <mat-icon>
+        {{ isConnected ? "cloud_done" : "cloud_off" }}
+      </mat-icon>
+    </button>
+  </div>
 </mat-toolbar>

@@ -1,7 +1,14 @@
 @use 'abstract/colors';
 @use 'components/buttons';
+@use 'layout/align';
+
+mat-toolbar {
+  height: 40px;
+}
 
 button.connect {
+  width: 30px;
+  height: 30px;
   &.disconnected {
     background-color: grey;
   }
@@ -9,8 +16,8 @@ button.connect {
   &.connected {
     background-color: colors.$connected;
   }
-}
 
-.left-right-spacer {
-  flex: 1 1 auto;
+  mat-icon {
+    font-size: 14px;
+  }
 }

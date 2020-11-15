@@ -40,6 +40,11 @@ export class SettingsService {
   }
 
   get dataBackend(): string {
-    return ``;
+    const be = this.settings.dataBackend;
+    return `ws://${be.ip}:${be.port}`;
+  }
+
+  get useFakeBackend(): boolean {
+    return this.settings.useFakeBackend;
   }
 }

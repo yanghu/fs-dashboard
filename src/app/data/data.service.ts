@@ -15,10 +15,9 @@ import {
   throttle,
 } from 'rxjs/operators';
 import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
-import { environment } from '@env/environment';
-export const WS_ENDPOINT = environment.wsEndpoint;
 
 import * as model from '@data/schema/proto/simdata';
+import { SettingsService } from '@modules/settings/service/settings.service';
 
 @Injectable({
   providedIn: 'root',
@@ -69,8 +68,8 @@ export class DataService {
     })
   );
 
-  constructor() {
-    if (environment.useFakeBackend) {
+  constructor(private settingsService: SettingsService) {
+    if (this.settingsService.useFakeBackend) {
       this.message$ = this.dummyMessage$.pipe(
         publish()
       ) as ConnectableObservable<model.flight_panel.SimData>;
@@ -91,7 +90,7 @@ export class DataService {
     // Activate the obsrevable BEFORE connecting to WS server.
     // Otherwise, the WS connection is missed by "this.messages$".
     this.message$.connect();
-    if (!environment.useFakeBackend) {
+    if (!this.settingsService.useFakeBackend) {
       this.connect();
     }
     this.isConnected = true;
@@ -123,7 +122,7 @@ export class DataService {
 
   private getNewWebSocket() {
     return webSocket<Uint8Array>({
-      url: WS_ENDPOINT,
+      url: this.settingsService.dataBackend,
       deserializer: (e: MessageEvent) => {
         return new Uint8Array(e.data);
       },

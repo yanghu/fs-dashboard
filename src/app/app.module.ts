@@ -10,6 +10,8 @@ import { ContentComponent } from '@layout/content/content.component';
 import { SharedModule } from '@shared/shared.module';
 import { NavbarComponent } from '@layout/navbar/navbar.component';
 import { FooterComponent } from '@layout/footer/footer.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { FooterComponent } from '@layout/footer/footer.component';
     SharedModule,
     // App
     AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent],

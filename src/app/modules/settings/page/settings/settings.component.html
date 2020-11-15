@@ -1,1 +1,30 @@
-Settings page
+<div class="settings-page">
+  <h1 class="title">Settings</h1>
+
+  <form [formGroup]="form">
+    <section class="settings-section">
+      <span class="section-label">Data Source</span>
+      <div class="row" formGroupName="dataBackend">
+        <label>Data Server</label>
+        <div class="input">
+          <mat-form-field class="ip-input">
+            <mat-label for="ip-address">IP Address</mat-label>
+            <input matInput formControlName="ip" class="ip-input" type="text" />
+          </mat-form-field>
+          :
+          <mat-form-field class="port-input">
+            <mat-label>Port</mat-label>
+            <input matInput formControlName="port" type="text" />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- <label>Use fake backend</label> -->
+        <mat-checkbox formControlName="useFakeBackend"
+          >Use fake backend</mat-checkbox
+        >
+      </div>
+    </section>
+  </form>
+</div>

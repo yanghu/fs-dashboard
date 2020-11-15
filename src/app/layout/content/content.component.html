@@ -7,7 +7,7 @@
   ></app-header>
 
   <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #sidenav mode="side" [opened]="true">
+    <mat-sidenav #sidenav mode="side" [opened]="screenWidth > 900">
       <app-navbar (toggleDebug)="toggleDebug($event)"></app-navbar>
     </mat-sidenav>
     <mat-sidenav-content>
@@ -17,11 +17,9 @@
           <mat-icon *ngIf="!isFullscreen">fullscreen</mat-icon>
           <mat-icon *ngIf="isFullscreen">fullscreen_exit</mat-icon>
         </button>
-        <!-- <div class="screen"></div> -->
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
-  <hr />
   <div class="footer">
     <app-footer [displayDebug]="displayDebug"></app-footer>
   </div>

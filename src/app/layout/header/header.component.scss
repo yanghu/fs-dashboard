@@ -1,23 +1,44 @@
 @use 'abstract/colors';
 @use 'components/buttons';
 @use 'layout/align';
+@import "theme/active";
+@import "~@angular/material/theming";
 
-mat-toolbar {
-  height: 40px;
+$background: map-get(
+  $map: $theme,
+  $key: "background",
+);
+
+.mat-toolbar {
+  background-color: mat-color($theme-primary);
+  color: $dark-primary-text;
 }
 
 button.connect {
-  width: 30px;
-  height: 30px;
   &.disconnected {
-    background-color: grey;
+    background-color: colors.$disconnected;
   }
 
   &.connected {
     background-color: colors.$connected;
   }
+}
 
-  mat-icon {
-    font-size: 14px;
+@media screen and (max-height: 500px) {
+  mat-toolbar {
+    height: 0px;
+  }
+
+  button {
+    display: absolute;
+  }
+
+  button.connect {
+    width: 30px;
+    height: 30px;
+
+    mat-icon {
+      font-size: 14px;
+    }
   }
 }

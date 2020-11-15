@@ -1,0 +1,81 @@
+@use "theme/active";
+
+@import "~@angular/material/theming";
+
+$foreground: map-get(active.$theme, foreground);
+$background: map-get(active.$theme, background);
+$accent: map-get(active.$theme, accent);
+
+:host {
+  width: 100%;
+}
+
+.settings-page {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title,
+.settings-section {
+  // width: 80%;
+}
+
+.title {
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid mat-color($foreground, divider);
+}
+
+.settings-section {
+  margin: 20px 0;
+  border-radius: 10px;
+  padding: 5px 10px;
+  background-color: mat-color($background, card);
+  .section-label {
+    font-size: 20px;
+    display: block;
+    margin-bottom: 20px;
+    // width: 70%;
+    // border-bottom: 1px solid mat-color($foreground, divider);
+  }
+
+  .row:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  justify-content: flex-start;
+  label {
+    margin-right: 20px;
+  }
+}
+
+.port-input {
+  width: 4em;
+}
+
+.ip-input {
+  width: 120px;
+  mat-label,
+  input {
+    text-align: right;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .row {
+    flex-direction: row;
+    align-items: center;
+
+    label {
+      width: 100px;
+      text-align: right;
+    }
+  }
+}

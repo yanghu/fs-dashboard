@@ -11,7 +11,6 @@
       class="connect"
       [ngClass]="isConnected ? 'connected' : 'disconnected'"
       [disableRipple]="true"
-      color="basic"
       (click)="toggleConnection.emit()"
       [matTooltip]="tooltip"
       matTooltipPosition="before"

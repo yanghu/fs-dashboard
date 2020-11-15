@@ -18,7 +18,15 @@ export class ContentComponent implements OnInit {
   isFullscreen: boolean = false;
   displayDebug: boolean = false;
 
-  constructor(private dataService: DataService) {}
+  screenWidth: number;
+  constructor(private dataService: DataService) {
+    // set screenWidth on page load
+    this.screenWidth = window.innerWidth;
+    window.onresize = () => {
+      // set screenWidth on screen size change
+      this.screenWidth = window.innerWidth;
+    };
+  }
 
   @ViewChild('content') divRef: ElementRef;
 

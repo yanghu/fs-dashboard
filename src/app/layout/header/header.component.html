@@ -1,24 +1,26 @@
-<mat-toolbar>
-  <button mat-icon-button class="menu-toggle" (click)="toggleMenu.emit()">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>{{ title }}</span>
-
-  <!-- Right-aligned box with buttons. -->
-  <div class="right-aligned">
-    <button
-      mat-mini-fab
-      class="connect"
-      [ngClass]="isConnected ? 'connected' : 'disconnected'"
-      [disableRipple]="true"
-      (click)="toggleConnection.emit()"
-      [matTooltip]="tooltip"
-      matTooltipPosition="before"
-      matTooltipClass="button-tooltip"
-    >
-      <mat-icon>
-        {{ isConnected ? "cloud_done" : "cloud_off" }}
-      </mat-icon>
+<div class="header-layout">
+  <mat-toolbar>
+    <button mat-icon-button class="menu-toggle" (click)="toggleMenu.emit()">
+      <mat-icon>menu</mat-icon>
     </button>
-  </div>
-</mat-toolbar>
+    <span>{{ title }}</span>
+
+    <!-- Right-aligned box with buttons. -->
+    <div class="right-aligned">
+      <button
+        mat-mini-fab
+        class="connect"
+        [ngClass]="isConnected ? 'connected' : 'disconnected'"
+        [disableRipple]="true"
+        (click)="toggleConnection.emit()"
+        [matTooltip]="tooltip"
+        matTooltipPosition="before"
+        matTooltipClass="button-tooltip"
+      >
+        <mat-icon>
+          {{ isConnected ? "cloud_done" : "cloud_off" }}
+        </mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+</div>

@@ -1,18 +1,6 @@
 @use 'abstract/colors';
 @use 'components/buttons';
 @use 'layout/align';
-@use "theme/active";
-@use "~@angular/material/theming";
-
-$background: map-get(
-  $map: active.$theme,
-  $key: "background",
-);
-
-.mat-toolbar {
-  background-color: theming.mat-color(active.$theme-primary);
-  color: active.$dark-primary-text;
-}
 
 button.connect {
   &.disconnected {

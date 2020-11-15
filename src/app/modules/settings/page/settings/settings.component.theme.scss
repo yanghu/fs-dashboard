@@ -1,0 +1,37 @@
+@use "~@angular/material/theming";
+
+@mixin settings-color($config-or-theme) {
+  // Extract the color configuration in case a theme has been passed.
+  // This allows consumers to either pass a theme object or a color configuration.
+  $config: theming.mat-get-color-config($config-or-theme);
+  // Extract the palettes you need from the theme definition.
+  $primary: map-get($config, primary);
+  $accent: map-get($config, accent);
+  $foreground: map-get($config, foreground);
+  $background: map-get($config, background);
+
+  .settings-page {
+    .title {
+      border-bottom: 1px solid theming.mat-color($foreground, divider);
+    }
+
+    .settings-section {
+      background-color: theming.mat-color($background, card);
+    }
+  }
+}
+
+@mixin settings-theme($theme) {
+  // Extracts the color and typography configurations from the theme.
+  $color: theming.mat-get-color-config($theme);
+  $typography: theming.mat-get-typography-config($theme);
+
+  // Do not generate styles if configurations for individual theming
+  // systems have been explicitly set to `null`.
+  @if $color != null {
+    @include settings-color($color);
+  }
+  // @if $typography != null {
+  // @include candy-carousel-typography($typography);
+  // }
+}

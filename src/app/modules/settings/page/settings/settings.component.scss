@@ -1,6 +1,6 @@
 @use "theme/active";
 
-@import "~@angular/material/theming";
+@use "~@angular/material/theming";
 
 $foreground: map-get(active.$theme, foreground);
 $background: map-get(active.$theme, background);
@@ -25,14 +25,14 @@ $accent: map-get(active.$theme, accent);
 .title {
   padding-bottom: 5px;
   margin-bottom: 10px;
-  border-bottom: 1px solid mat-color($foreground, divider);
+  border-bottom: 1px solid theming.mat-color($foreground, divider);
 }
 
 .settings-section {
   margin: 20px 0;
   border-radius: 10px;
   padding: 5px 10px;
-  background-color: mat-color($background, card);
+  background-color: theming.mat-color($background, card);
   .section-label {
     font-size: 20px;
     display: block;

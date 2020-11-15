@@ -27,6 +27,20 @@ export class DataService {
 
   private socket$: WebSocketSubject<Uint8Array>;
   private messageSubject$ = new Subject<Observable<Uint8Array>>();
+
+  private realData$: Observable<
+    model.flight_panel.SimData
+  > = this.messageSubject$.pipe(
+    tap((x) => console.log(x)),
+    switchAll(),
+    catchError((e) => {
+      throw e;
+    }),
+    map((data) => model.flight_panel.SimData.decode(data))
+  ) as ConnectableObservable<model.flight_panel.SimData>;
+
+  private dataSwitch = new Subject<Observable<model.flight_panel.SimData>>();
+
   isConnected: boolean = false;
 
   // Everytime we call "connect", messageSubject emits a new WebSocketSubject
@@ -34,9 +48,15 @@ export class DataService {
   // The public `message` use `switchAll` pipe so only the most recent
   // connection is used.
 
-  readonly message$: ConnectableObservable<model.flight_panel.SimData>;
+  public readonly message$: ConnectableObservable<
+    model.flight_panel.SimData
+  > = this.dataSwitch.pipe(switchAll(), publish()) as ConnectableObservable<
+    model.flight_panel.SimData
+  >;
   // dummy observable.
-  private readonly dummyMessage$ = interval(30).pipe(
+  private readonly fakeData$: Observable<model.flight_panel.SimData> = interval(
+    30
+  ).pipe(
     map((x) => {
       let val = Math.sin(x / 20);
       let data = model.flight_panel.SimData.create({
@@ -68,30 +88,17 @@ export class DataService {
     })
   );
 
-  constructor(private settingsService: SettingsService) {
-    if (this.settingsService.useFakeBackend) {
-      this.message$ = this.dummyMessage$.pipe(
-        publish()
-      ) as ConnectableObservable<model.flight_panel.SimData>;
-    } else {
-      this.message$ = this.messageSubject$.pipe(
-        tap((x) => console.log(x)),
-        switchAll(),
-        catchError((e) => {
-          throw e;
-        }),
-        map((data) => model.flight_panel.SimData.decode(data)),
-        publish()
-      ) as ConnectableObservable<model.flight_panel.SimData>;
-    }
-  }
+  constructor(private settingsService: SettingsService) {}
 
   public start(): void {
     // Activate the obsrevable BEFORE connecting to WS server.
     // Otherwise, the WS connection is missed by "this.messages$".
     this.message$.connect();
     if (!this.settingsService.useFakeBackend) {
+      this.dataSwitch.next(this.realData$);
       this.connect();
+    } else {
+      this.dataSwitch.next(this.fakeData$);
     }
     this.isConnected = true;
   }
@@ -99,6 +106,7 @@ export class DataService {
   public stop(): void {
     this.close();
     this.isConnected = false;
+    this.dataSwitch.next(new Observable<model.flight_panel.SimData>());
   }
 
   public connect(): void {
@@ -114,6 +122,7 @@ export class DataService {
         }),
         catchError((_) => EMPTY)
       );
+      console.log('connectd.');
       this.messageSubject$.next(messages);
     } else {
       console.log('Connection already exist');
@@ -141,7 +150,7 @@ export class DataService {
   }
 
   close() {
-    this.socket$.complete();
+    this.socket$?.complete();
   }
 
   handleError(error) {

@@ -124,3 +124,9 @@ svg.course2 {
 div.heading_text text {
   fill: white;
 }
+
+@media screen and (max-width: 500px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -59,7 +59,7 @@ export class InstrumentsComponent implements OnInit {
   // If this is executed in ngAfterViewInit, would see
   // ExpressionChangedAfterItHasBeenCheckedError
   ngAfterViewInit(): void {
-    this.maxWidth = this.container.nativeElement.offsetHeight * 1.5;
+    this.maxWidth = this.container.nativeElement.offsetHeight * 1.5 - 1;
     this.ref.detectChanges();
   }
 

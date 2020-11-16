@@ -6,6 +6,7 @@ import { defaultSettings, Settings } from '@data/schema/settings';
 })
 export class SettingsService {
   private settings: Settings;
+  private kSettingsKey = 'settings';
 
   constructor() {
     this.settings = this.loadSettings();
@@ -16,23 +17,13 @@ export class SettingsService {
 
   saveSettings(settings): void {
     this.settings = settings;
-    localStorage.setItem('ip', settings.dataBackend.ip);
-    localStorage.setItem('port', settings.dataBackend.port);
-    localStorage.setItem('useFakeBackend', settings.useFakeBackend);
-    localStorage.setItem('fsSettingsValid', 'true');
+    localStorage.setItem(this.kSettingsKey, JSON.stringify(settings));
     console.log('saved');
   }
 
   private loadSettings(): Settings {
-    if (localStorage.getItem('fsSettingsValid') == 'true') {
-      return {
-        useFakeBackend: localStorage.getItem('useFakeBackend') == 'true',
-        dataBackend: {
-          ip: localStorage.getItem('ip'),
-          port: localStorage.getItem('port'),
-        },
-      };
-    }
+    var value = localStorage.getItem(this.kSettingsKey);
+    return value && JSON.parse(value);
   }
 
   public getSettings(): Settings {

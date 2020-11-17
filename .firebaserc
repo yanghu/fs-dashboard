@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "fsimdash": {
+      "hosting": {
+        "flight-dashboard": [
+          "fsimdash"
+        ]
+      }
+    }
+  }
+}

@@ -1,7 +1,4 @@
 {
-  "projects"{
-    "default": "fsimdash"
-  },
   "targets": {
     "fsimdash": {
       "hosting": {

@@ -1,12 +1,18 @@
 <div class="header-layout">
-  <mat-toolbar>
+  <mat-toolbar class="toolbar">
     <button mat-icon-button class="menu-toggle" (click)="toggleMenu.emit()">
       <mat-icon>menu</mat-icon>
     </button>
-    <span>{{ title }}</span>
+    <span class="title">{{ title }}</span>
+    <div class="nav-list">
+      <a href="/" class="nav-item">
+        <mat-icon>home</mat-icon>
+        <span class="nav-label">Home</span>
+      </a>
+    </div>
 
     <!-- Right-aligned box with buttons. -->
-    <div class="right-aligned">
+    <div class="end-container">
       <button
         mat-mini-fab
         class="connect"

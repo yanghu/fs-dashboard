@@ -14,7 +14,7 @@ import { DataService } from '@data/data.service';
   styleUrls: ['./content.component.scss'],
 })
 export class ContentComponent implements OnInit {
-  title = 'Flight Dashboard';
+  title = 'FSimDash';
   isFullscreen: boolean = false;
   displayDebug: boolean = false;
 

@@ -2,6 +2,35 @@
 @use 'components/buttons';
 @use 'layout/align';
 
+.toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
+.nav-list {
+  margin-left: 10px;
+  display: flex;
+  flex: 1 1 auto;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+}
+
+.nav-label {
+  font-size: 14px;
+}
+
+.end-container {
+  margin-left: auto;
+}
+
 button.connect {
   &.disconnected {
     background-color: colors.$disconnected;
@@ -12,21 +41,55 @@ button.connect {
   }
 }
 
-@media screen and (max-height: 500px) {
-  mat-toolbar {
-    height: 0px;
+@media screen and (min-width: 800px) {
+  .toolbar {
+    flex-direction: column;
+    padding: 0;
+    height: 100%;
+
+    .nav-label {
+      display: none;
+    }
   }
 
-  button {
-    display: absolute;
+  .title {
+    display: none;
   }
 
-  button.connect {
+  .end-container {
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: auto;
+    margin-bottom: 5px;
+  }
+
+  .header-layout {
+    height: 100%;
+  }
+
+  .toolbar:hover {
+    .nav-label {
+      display: initial;
+    }
+  }
+}
+
+// Only use smaller icons on side on narrow screen.
+@media screen and (max-width: 1200px) and (min-width: 800px) {
+  .mat-icon-button,
+  .mat-mini-fab {
     width: 30px;
     height: 30px;
-
-    mat-icon {
-      font-size: 14px;
+    line-height: 21px;
+    font-size: 21px;
+    &::ng-deep .mat-button-wrapper {
+      line-height: 21px;
+      padding: 0;
+      .mat-icon {
+        font-size: 21px;
+        // padding-right: 2px;
+        padding-top: 2px;
+      }
     }
   }
 }

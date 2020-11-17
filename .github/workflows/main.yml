@@ -56,15 +56,14 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: dist
-          path: |
-            ./dist
-            firebase.json
-            .firebaserc
+          path: dist
   deploy-firebae:
     name: Deploy to Firebase
     runs-on: ubuntu-latest
     needs: [build]
     steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
       - name: Download a single artifact
         uses: actions/download-artifact@v2
         with:

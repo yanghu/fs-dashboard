@@ -1,4 +1,5 @@
 @use "~@angular/material/theming";
+@use "sass:color";
 
 @mixin header-color($config-or-theme) {
   // Extract the color configuration in case a theme has been passed.
@@ -11,6 +12,10 @@
   .header-layout .mat-toolbar {
     background-color: theming.mat-color($primary);
     color: theming.mat-color($primary, default-contrast);
+  }
+
+  .nav-item:hover {
+    background-color: color.scale(theming.mat-color($primary), $lightness: 30%);
   }
 }
 

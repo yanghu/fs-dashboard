@@ -38,7 +38,7 @@ mat-sidenav-content {
   right: 1rem;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (max-height: 500px) {
   div.page {
     flex-direction: row;
     .footer {

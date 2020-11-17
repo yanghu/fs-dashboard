@@ -12,3 +12,10 @@
   @extend %end-aligned;
   flex-direction: column;
 }
+
+.page-container {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}

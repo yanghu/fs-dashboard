@@ -5,13 +5,9 @@
     </button>
     <span class="title">{{ title }}</span>
     <div class="nav-list">
-      <a href="/" class="nav-item">
-        <mat-icon>home</mat-icon>
-        <span class="nav-label">Home</span>
-      </a>
-      <a href="/settings" class="nav-item">
-        <mat-icon>settings</mat-icon>
-        <span class="nav-label">Settings</span>
+      <a class="nav-item" *ngFor="let item of navItems" [href]="item.link">
+        <mat-icon>{{ item.icon }}</mat-icon>
+        <span class="nav-label">{{ item.label }}</span>
       </a>
     </div>
 

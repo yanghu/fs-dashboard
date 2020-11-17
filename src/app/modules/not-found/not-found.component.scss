@@ -1,0 +1,26 @@
+@use 'layout/align';
+
+.page-container {
+  display: flex;
+  align-items: center;
+  height: 80%;
+  justify-content: center;
+}
+.text {
+  text-align: center;
+}
+
+a {
+  color: grey;
+  background-color: khaki;
+  padding: 3px 5px;
+  border-radius: 5px;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 40px;
+}

@@ -1,0 +1,76 @@
+{
+  "configVersion": 1,
+  "timestamp": 1605576300859,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/4.476a3a8a2f5f1f2b41ba.js",
+        "/5.7a2df10ad9946c3c4cc5.js",
+        "/favicon.ico",
+        "/index.html",
+        "/main.dd341c9830f9bc296638.js",
+        "/manifest.webmanifest",
+        "/polyfills.35a5ca1855eb057f016a.js",
+        "/runtime.e2d0aa39cdd25debcbcb.js",
+        "/styles.25f4d2d5036110a9b6ca.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/assets/font/digital-numbers.woff",
+        "/assets/font/lcd-font.woff",
+        "/assets/font/lcd-font.woff2",
+        "/digital-numbers.934f85e2b0a3da3bcb8d.woff"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/4.476a3a8a2f5f1f2b41ba.js": "c93c648f01ae6530e0fb29c187363189c0fed63b",
+    "/5.7a2df10ad9946c3c4cc5.js": "c759423631e7fc51cac534769451e8d3362e5b2d",
+    "/assets/font/digital-numbers.woff": "ab838deb4f68c895d74887a21374f340c65045a1",
+    "/assets/font/lcd-font.woff": "312d5c4a16db5fcad54a759840301e43f07204d6",
+    "/assets/font/lcd-font.woff2": "bfa2df9c82ad0721c240dee35df09502834556f8",
+    "/digital-numbers.934f85e2b0a3da3bcb8d.woff": "ab838deb4f68c895d74887a21374f340c65045a1",
+    "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/index.html": "c8547940c0e532e123c237a7d32fef2c356ad129",
+    "/main.dd341c9830f9bc296638.js": "004063ab2e2bfc6f3126d0c0d1401584389c0ef4",
+    "/manifest.webmanifest": "d4ceee722fffe0d2083fd62289ab29a898e11238",
+    "/polyfills.35a5ca1855eb057f016a.js": "578360d24ce37383f261c7ef63b1f822d28e8dde",
+    "/runtime.e2d0aa39cdd25debcbcb.js": "7ea2fe2b418dd5ca0b55fde2a0cb81be6d54a0f1",
+    "/styles.25f4d2d5036110a9b6ca.css": "8c702b1893bde63631084f2902bfea831771c3e5"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

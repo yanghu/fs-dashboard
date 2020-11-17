@@ -66,8 +66,6 @@ jobs:
         uses: actions/checkout@master
       - name: Download a single artifact
         uses: actions/download-artifact@v2
-        with:
-          name: dist
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
       - name: Deploy to firebase

@@ -11,6 +11,12 @@ export class HeaderComponent implements OnInit {
   @Input() title: string;
   @Input() isConnected: boolean;
 
+  navItems = [
+    { icon: 'home', label: 'Home', link: '/' },
+    { icon: 'dashboard', label: 'Dashboard', link: '/dashboard' },
+    { icon: 'settings', label: 'Settings', link: '/settings' },
+  ];
+
   constructor() {}
 
   ngOnInit(): void {}

@@ -9,5 +9,11 @@
 @use "components/misc";
 @use "components/forms";
 
+@use "layout/align";
+
 @use "theme/active";
 @import "theme/theme";
+
+a {
+  text-decoration: none;
+}

@@ -70,8 +70,6 @@ jobs:
           name: dist
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
-        with:
-          sudo: false
       - name: Deploy to firebase
         uses: w9jds/firebase-action@master
         with:

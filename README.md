@@ -1,12 +1,12 @@
 # Flight Dashboard
 
-![Deploy to Github Pages](https://github.com/yanghu/fs-dashboard/workflows/Deploy%20to%20Github%20Pages/badge.svg)
+![Release to Firebase](https://github.com/yanghu/fs-dashboard/workflows/Release%20to%20Firebase/badge.svg)
 
 Flight dashboard web app with instruments, avionics and AP data/controls,
 written in Angular.
 
-[Demo page](https://yanghu.github.io/flight-pages). The demo page use fake data
-to demonstrate features.
+[Demo page](https://fsimdash.web.app). The demo page use fake data to
+demonstrate features.
 
 ---
 

@@ -13,5 +13,5 @@ export const defaultSettings: Settings = {
     ip: '192.168.1.100',
     port: '8080',
   },
-  useFakeBackend: false,
+  useFakeBackend: true,
 };

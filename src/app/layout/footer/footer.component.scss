@@ -1,5 +1,8 @@
+$muted-color: hsl(0, 0%, 75%);
+
 .footer {
   background-color: #424242;
+  overflow-y: hidden;
 }
 
 .copyright {
@@ -8,7 +11,7 @@
 
 span.text-muted {
   font-size: small;
-  color: hsl(0, 0%, 75%);
+  color: $muted-color;
   a {
     color: hsl(0, 100%, 100%);
     text-decoration: none;
@@ -16,4 +19,10 @@ span.text-muted {
       color: hsl(200, 50%, 50%);
     }
   }
+}
+
+.debug-button {
+  font-size: small;
+  color: $muted-color;
+  float: left;
 }

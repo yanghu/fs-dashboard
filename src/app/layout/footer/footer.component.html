@@ -1,5 +1,8 @@
 <app-debug-info *ngIf="displayDebug"></app-debug-info>
 <footer class="footer">
+  <div class="debug-button">
+    <mat-slide-toggle [(ngModel)]="displayDebug">Debug</mat-slide-toggle>
+  </div>
   <div class="copyright">
     <span class="text-muted">
       &copy; {{ currentYear }}

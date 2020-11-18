@@ -8,7 +8,7 @@
 
   <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #sidenav mode="side" [opened]="screenWidth > 900">
-      <app-navbar (toggleDebug)="toggleDebug($event)"></app-navbar>
+      <app-navbar></app-navbar>
     </mat-sidenav>
     <mat-sidenav-content>
       <div #content class="content">
@@ -21,6 +21,6 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
   <div class="footer">
-    <app-footer [displayDebug]="displayDebug"></app-footer>
+    <app-footer></app-footer>
   </div>
 </div>

@@ -16,7 +16,6 @@ import { DataService } from '@data/data.service';
 export class ContentComponent implements OnInit {
   title = 'FSimDash';
   isFullscreen: boolean = false;
-  displayDebug: boolean = false;
 
   screenWidth: number;
   constructor(private dataService: DataService) {
@@ -67,14 +66,6 @@ export class ContentComponent implements OnInit {
       document.exitFullscreen();
     } else {
       this.divRef.nativeElement.requestFullscreen();
-    }
-  }
-
-  toggleDebug(event: MatSlideToggleChange) {
-    if (event.checked) {
-      this.displayDebug = true;
-    } else {
-      this.displayDebug = false;
     }
   }
 }

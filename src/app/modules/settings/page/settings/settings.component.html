@@ -9,12 +9,18 @@
         <div class="input">
           <mat-form-field class="ip-input">
             <mat-label for="ip-address">IP Address</mat-label>
-            <input matInput formControlName="ip" class="ip-input" type="text" />
+            <input
+              matInput
+              formControlName="ip"
+              class="ip-input"
+              type="text"
+              pattern="^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+            />
           </mat-form-field>
           :
           <mat-form-field class="port-input">
             <mat-label>Port</mat-label>
-            <input matInput formControlName="port" type="text" />
+            <input matInput formControlName="port" type="text" pattern="\d+" />
           </mat-form-field>
         </div>
       </div>

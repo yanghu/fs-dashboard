@@ -10,8 +10,9 @@ import { debounceTime, switchMap, takeUntil } from 'rxjs/operators';
   styleUrls: ['./settings.component.scss'],
 })
 export class SettingsComponent implements OnInit {
+  // The form group, which binds to the form
   form = this.fb.group({
-    useFakeBackend: [false],
+    useFakeBackend: [true],
     dataBackend: this.fb.group({
       ip: ['192.168.1.130'],
       port: ['8080'],

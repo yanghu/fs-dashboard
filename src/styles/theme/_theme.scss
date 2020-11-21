@@ -1,5 +1,6 @@
 @use "theme/active";
 @use "src/app/layout/header/header.component.theme" as header;
+@use "src/app/layout/content/content.component.theme" as layout;
 @use "src/app/modules/settings/page/settings/settings.component.theme.scss" as settings;
 
 @import "~@angular/material/theming";
@@ -14,6 +15,7 @@
 // Custom themes
 @include header.header-theme(active.$theme);
 @include settings.settings-theme(active.$theme);
+@include layout.content-theme(active.$theme);
 
 // Specific component overrides, pieces that are not in line with the general theming
 

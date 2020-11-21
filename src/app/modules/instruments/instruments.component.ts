@@ -69,7 +69,6 @@ export class InstrumentsComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    this.maxWidth = this.container.nativeElement.offsetHeight * 1.5;
-    console.log(this.maxWidth);
+    this.maxWidth = this.container.nativeElement.offsetHeight * 1.5 - 1;
   }
 }
